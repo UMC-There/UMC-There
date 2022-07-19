@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_listmyprofile.xml" value="0.10597826086956522" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_myprofile.xml" value="0.25" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_myprofilelist.xml" value="0.10597826086956522" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_myprofile.xml" value="0.16" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_myprofilegrid.xml" value="0.18489583333333334" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_myprofilelist.xml" value="0.25" />
       </map>
     </option>
   </component>

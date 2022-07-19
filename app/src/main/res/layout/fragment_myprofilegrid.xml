@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord1"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord2"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord3"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord4"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord5"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord6"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord7"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord8"
+            android:src="@drawable/img_myprofile_record" />
+
+        <ImageButton
+            android:id="@+id/ibtn_myprofile_myrecord9"
+            android:src="@drawable/img_myprofile_record" />
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
