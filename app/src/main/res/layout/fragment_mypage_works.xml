@@ -11,39 +11,39 @@
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord1"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord2"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord3"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord4"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord5"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord6"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord7"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord8"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
 
         <ImageButton
             android:id="@+id/ibtn_myprofile_myrecord9"
-            android:src="@drawable/img_myprofile_record" />
+            android:src="@drawable/img_mypage_record" />
     </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

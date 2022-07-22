@@ -6,55 +6,54 @@
     android:paddingHorizontal="16dp"
     android:paddingTop="16dp">
     <TextView
-        android:id="@+id/myprofile_account_tv"
+        android:id="@+id/mypage_account_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="계정명"
         android:textSize="24dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
-
     <ImageView
-        android:id="@+id/myprofile_menu_iv"
+        android:id="@+id/mypage_add_iv"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/btn__myprofile_menu"
+        android:src="@drawable/btn_mypage_add"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/mypage_menu_iv"/>
+    <ImageView
+        android:id="@+id/mypage_menu_iv"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/btn__mypage_menu"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
-<!--    <LinearLayout-->
-<!--        android:id="@+id/myprofile_top_ll"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-<!--        -->
-<!--    </LinearLayout>-->
     <View
-        android:id="@+id/myprofile_v1"
+        android:id="@+id/mypage_v1"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="14dp"
         android:background="#A0ABBB"
-        app:layout_constraintTop_toBottomOf="@id/myprofile_account_tv" />
+        app:layout_constraintTop_toBottomOf="@id/mypage_account_tv" />
     <LinearLayout
-        android:id="@+id/myprofile_profile_ll"
+        android:id="@+id/mypage_profile_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/myprofile_v1">
+        app:layout_constraintTop_toBottomOf="@+id/mypage_v1">
         <ImageView
-            android:id="@+id/myprofile_profileimg_iv"
+            android:id="@+id/mypage_profileimg_iv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/img_myprofile_profileimg"/>
+            android:src="@drawable/img_mypage_profileimg"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="17dp"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/myprofile_name_tv"
+                android:id="@+id/mypage_name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="17dp"
@@ -89,30 +88,30 @@
         </LinearLayout>
     </LinearLayout>
     <TextView
-        android:id="@+id/myprofile_intro_tv"
+        android:id="@+id/mypage_intro_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/myprofile_profile_ll"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_profile_ll"
         android:text=" 이곳에 개인 설명을 작성합니다. 이곳에 개인 설명을 작성합니다. 이곳에 개인 설명을 작성합니다. "/>
     <Button
-        android:id="@+id/myprofile_note_btn"
+        android:id="@+id/mypage_note_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        app:layout_constraintRight_toLeftOf="@+id/myprofile_profileedit_btn"
-        app:layout_constraintTop_toBottomOf="@+id/myprofile_intro_tv"
+        app:layout_constraintRight_toLeftOf="@+id/mypage_profileedit_btn"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_intro_tv"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         android:text="작가노트"/>
     <Button
-        android:id="@+id/myprofile_profileedit_btn"
+        android:id="@+id/mypage_profileedit_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="14dp"
-        app:layout_constraintTop_toBottomOf="@+id/myprofile_intro_tv"
-        app:layout_constraintLeft_toRightOf="@+id/myprofile_note_btn"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_intro_tv"
+        app:layout_constraintLeft_toRightOf="@+id/mypage_note_btn"
         app:layout_constraintRight_toRightOf="parent"
         android:text="프로필 편집"/>
     <LinearLayout
@@ -120,10 +119,10 @@
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/myprofile_note_btn"
+        app:layout_constraintTop_toBottomOf="@id/mypage_note_btn"
         app:layout_constraintBottom_toBottomOf="parent">
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/myprofile_tablayout"
+            android:id="@+id/mypage_tablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <androidx.viewpager2.widget.ViewPager2
@@ -133,13 +132,5 @@
             android:layout_marginTop="12dp"
             android:background="#eeeeee" />
     </LinearLayout>
-    <ImageButton
-        android:id="@+id/myprofile_add_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/btn_myprofile_add"
-        android:backgroundTint="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

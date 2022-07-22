@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.there_android.databinding.FragmentMyprofilegridBinding
 
 
-class MyProfileGridFragment : Fragment(){
+class MyPageWorksFragment : Fragment(){
     private lateinit var binding: FragmentMyprofilegridBinding
 
     override fun onCreateView(
