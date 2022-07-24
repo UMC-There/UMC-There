@@ -1,6 +1,229 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/etc_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="더보기"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etc_wallet_cl"
+        app:layout_constraintTop_toBottomOf="@id/etc_title_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:background="#E7EAEE">
+
+        <TextView
+            android:id="@+id/etc_title_point_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="충전금액"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="34dp"/>
+
+        <TextView
+            android:id="@+id/etc_point_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="000,000"
+            android:textColor="@color/black"
+            android:textSize="32sp"
+            app:layout_constraintTop_toBottomOf="@id/etc_title_point_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="0dp"/>
+
+        <TextView
+            android:id="@+id/etc_point_won_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@id/etc_point_tv"
+            app:layout_constraintTop_toTopOf="@id/etc_point_tv"
+            app:layout_constraintBottom_toBottomOf="@id/etc_point_tv"
+            android:layout_marginStart="2dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_etc_more"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="33dp"
+            android:layout_marginTop="23dp"/>
+
+        <Button
+            android:id="@+id/etc_charge_btn"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="충전하기"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/shape_etc_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etc_point_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/etc_purchase_history_btn"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="구매내역"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/shape_etc_button"
+            app:layout_constraintStart_toEndOf="@id/etc_charge_btn"
+            app:layout_constraintTop_toBottomOf="@id/etc_point_tv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="24dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E7EAEE"
+        app:layout_constraintBottom_toTopOf="@id/etc_setting_cl"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/etc_setting_cl"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        app:layout_constraintTop_toBottomOf="@id/etc_wallet_cl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/etc_setting_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="설정"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="18dp"/>
+
+        <ImageView
+            android:id="@+id/etc_setting_btn_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_etc_go"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etc_setting_title_tv"
+            app:layout_constraintBottom_toBottomOf="@id/etc_setting_title_tv"
+            android:layout_marginEnd="34dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E7EAEE"
+        app:layout_constraintBottom_toTopOf="@id/etc_service_center_cl"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/etc_service_center_cl"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        app:layout_constraintTop_toBottomOf="@id/etc_setting_cl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:id="@+id/etc_service_center_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="고객센터"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="18dp"/>
+
+        <ImageView
+            android:id="@+id/etc_service_center_btn_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_etc_go"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etc_service_center_title_tv"
+            app:layout_constraintBottom_toBottomOf="@id/etc_service_center_title_tv"
+            android:layout_marginEnd="34dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E7EAEE"
+        app:layout_constraintBottom_toTopOf="@id/etc_inquiry_cl"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/etc_inquiry_cl"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        app:layout_constraintTop_toBottomOf="@id/etc_service_center_cl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="1dp">
+
+        <TextView
+            android:id="@+id/etc_inquiry_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문의하기"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="18dp"/>
+
+        <ImageView
+            android:id="@+id/etc_inquiry_btn_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_btn_etc_go"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etc_inquiry_title_tv"
+            app:layout_constraintBottom_toBottomOf="@id/etc_inquiry_title_tv"
+            android:layout_marginEnd="34dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E7EAEE"
+        app:layout_constraintTop_toBottomOf="@id/etc_inquiry_cl"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
