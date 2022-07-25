@@ -3,35 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/btn_bnv_home"
+        android:icon="@drawable/selector_icon_bnv_home"
         app:showAsAction="always"
         android:enabled="true"
         android:title="홈"/>
 
     <item
         android:id="@+id/searchFragment"
-        android:icon="@drawable/btn_bnv_search"
+        android:icon="@drawable/selector_icon_bnv_search"
         app:showAsAction="always"
         android:enabled="true"
         android:title="검색"/>
 
     <item
         android:id="@+id/chattingFragment"
-        android:icon="@drawable/btn_bnv_chatting"
+        android:icon="@drawable/selector_icon_bnv_chatting"
         app:showAsAction="always"
         android:enabled="true"
         android:title="채팅"/>
 
     <item
         android:id="@+id/mypageFragment"
-        android:icon="@drawable/btn_bnv_profile"
+        android:icon="@drawable/selector_icon_bnv_mypage"
         app:showAsAction="always"
         android:enabled="true"
         android:title="마이페이지"/>
 
     <item
         android:id="@+id/etcFragment"
-        android:icon="@drawable/btn_bnv_etc"
+        android:icon="@drawable/selector_icon_bnv_etc"
         app:showAsAction="always"
         android:enabled="true"
         android:title="기타"/>
