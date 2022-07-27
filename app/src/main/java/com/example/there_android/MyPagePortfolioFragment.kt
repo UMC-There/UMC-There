@@ -5,18 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.there_android.databinding.FragmentMypagePortfolioBinding
 import com.example.there_android.databinding.FragmentMyprofileBinding
 import com.example.there_android.databinding.FragmentMyprofilelistBinding
 
 class MyPagePortfolioFragment : Fragment() {
-    private lateinit var binding: FragmentMyprofilelistBinding
+    private lateinit var binding: FragmentMypagePortfolioBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyprofilelistBinding.inflate(inflater, container, false)
+        binding = FragmentMypagePortfolioBinding.inflate(inflater, container, false)
         return binding.root
     }
 }

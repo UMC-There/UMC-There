@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.there_android.databinding.FragmentMyprofileBinding
+import com.example.there_android.databinding.FragmentMypageBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MyPageFragment : Fragment() {
-    private lateinit var binding: FragmentMyprofileBinding
+    private lateinit var binding: FragmentMypageBinding
     private val tabIconArray = arrayOf(R.drawable.btn__mypage_works, R.drawable.btn__mypage_portfolio)
 
     override fun onCreateView(
@@ -17,7 +17,7 @@ class MyPageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyprofileBinding.inflate(inflater, container, false)
+        binding = FragmentMypageBinding.inflate(inflater, container, false)
 
         //추가 기록하기 버튼 이동
 //        binding.myprofileAddBtn.setOnClickListener {
@@ -25,8 +25,8 @@ class MyPageFragment : Fragment() {
 //        }
 
         //tablayout (viewpager2)
-        val viewPager = binding.myaprofileViewpager
-        val tabLayout = binding.myprofileTablayout
+        val viewPager = binding.mypageViewpager
+        val tabLayout = binding.mypageTablayout
         viewPager.adapter = VPAdapterMyPage(this)
         TabLayoutMediator(tabLayout, viewPager){
             tab, position -> tab.setIcon(tabIconArray[position])
