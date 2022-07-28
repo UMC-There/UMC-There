@@ -29,8 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    //뷰바인딩
-    viewBinding{
+
+    //뷰바인딩 추가
+    viewBinding {
         enabled true
     }
 }
