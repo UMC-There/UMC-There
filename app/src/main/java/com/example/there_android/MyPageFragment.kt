@@ -19,6 +19,7 @@ class MyPageFragment : Fragment() {
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
+
         //추가 기록하기 버튼 이동
 //        binding.myprofileAddIv.setOnClickListener {
 //            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main, AddRecordFragment()).commitAllowingStateLoss()
