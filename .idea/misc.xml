@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_etc_off.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_etc_on.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_home_off.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_home_on.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_post_share.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/ic_btn_etc_go.xml" value="0.1685" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/ic_btn_etc_more.xml" value="0.1315" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_chatting.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_etc.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_home.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_mypage.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_search.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/shape_etc_button.xml" value="0.1685" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_post.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_chatting.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_etc.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_home.xml" value="0.265625" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_mypage.xml" value="0.2905982905982906" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/framgent_search.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
