@@ -32,7 +32,7 @@
             android:id="@+id/mypage_menu_iv"
             android:layout_width="23dp"
             android:layout_height="23dp"
-            android:src="@drawable/btn__mypage_menu"
+            android:src="@drawable/btn_mypage_menu"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
