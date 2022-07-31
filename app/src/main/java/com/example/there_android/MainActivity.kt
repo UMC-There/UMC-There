@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         initBottomNavigation()
     }
 
@@ -38,9 +40,9 @@ class MainActivity : AppCompatActivity() {
                     return@setOnItemSelectedListener true
                 }
 
-                R.id.chattingFragment -> {
+                R.id.chatFragment -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.main_frm, ChattingFragment())
+                        .replace(R.id.main_frm, ChatFragment())
                         .commitAllowingStateLoss()
                     return@setOnItemSelectedListener true
                 }

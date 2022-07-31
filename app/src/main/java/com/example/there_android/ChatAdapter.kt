@@ -1,34 +1,34 @@
-package com.example.there_android
-
-import android.R
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.RecyclerView
-import com.example.there_android.databinding.ItemChatlistBinding
-
-class ChatAdapter (): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>(){
-    var chatlist = mutableListOf<ChatData>()
-
-    inner class ChatViewHolder(private val binding: ItemChatlistBinding): RecyclerView.ViewHolder(binding.root) {
-        fun bind(chatData: ChatData){
-            binding.chatNameTv.text=chatData.nickname
-            binding.chatTimeTv.text= chatData.time.toString()
-            binding.chatTextTv.text=chatData.text
-            binding.chatCountTv.text= chatData.count.toString()
-        }
-    }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding =
-    }
-
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        holder.bind(chatlist[position])
-    }
-
-    override fun getItemCount(): Int = chatlist.size
-}
+//package com.example.there_android
+//
+//import android.R
+//import android.view.LayoutInflater
+//import android.view.View
+//import android.view.ViewGroup
+//import android.widget.TextView
+//import androidx.recyclerview.widget.RecyclerView
+//import com.example.there_android.databinding.ItemChatlistBinding
+//
+//class ChatAdapter (): RecyclerView.Adapter<ChatAdapter.ChatViewHolder>(){
+//    var chatlist = mutableListOf<ChatData>()
+//
+//    inner class ChatViewHolder(private val binding: ItemChatlistBinding): RecyclerView.ViewHolder(binding.root) {
+//        fun bind(chatData: ChatData){
+//            binding.chatNameTv.text=chatData.nickname
+//            binding.chatTimeTv.text= chatData.time.toString()
+//            binding.chatTextTv.text=chatData.text
+//            binding.chatCountTv.text= chatData.count.toString()
+//        }
+//    }
+//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+//        val binding =
+//    }
+//
+//    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+//        holder.bind(chatlist[position])
+//    }
+//
+//    override fun getItemCount(): Int = chatlist.size
+//}
 //Adapter : listview를 만들어서 recyclerview와 연결해줌 , Holder에서 만들어 준 listView를 inflater를 이용해 객체화 시키고 실제 데이터를 담아줌
 //즉, Holder가 listview 그릇을 만들면 Adapter가 실제 데이터를 담은 listView를 만들어주는 것
 //class ChatAdapter(items: List<Chat>) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
