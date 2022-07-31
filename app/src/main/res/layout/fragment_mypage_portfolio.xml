@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mpage_portfolio_recyclerview"
+        android:id="@+id/mypage_portfolio_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
