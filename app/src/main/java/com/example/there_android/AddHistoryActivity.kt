@@ -20,9 +20,10 @@ import com.example.there_android.databinding.ActivityAddhistoryBinding
 import java.io.File
 import java.util.jar.Manifest
 
-class AddHistoryActivity: AppCompatActivity() {
+class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
     lateinit var binding: ActivityAddhistoryBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -47,7 +48,7 @@ class AddHistoryActivity: AppCompatActivity() {
 
         //'완료' 버튼 누르면 서버로 데이터 전송 & Post 화면으로 전환
         binding.addhistoryDoneTv.setOnClickListener {
-            addHistory()
+            //addHistory()
 
         }
 
@@ -134,23 +135,27 @@ class AddHistoryActivity: AppCompatActivity() {
     }
 
     //Request로 보낼 내용 얻는 함수
-    private fun getContent() : AddHistoryRequest {
-        val title : String = binding.addhistoryAddtitleEt.text.toString()
-        val content : String = binding.addhistoryAddcontentEt.text.toString()
-        return AddHistoryRequest()
-    }
+//    private fun getContent() : AddHistoryRequest {
+//        val title : String = binding.addhistoryAddtitleEt.text.toString()
+//        val content : String = binding.addhistoryAddcontentEt.text.toString()
+//        //return AddHistoryRequest()
+//    }
 
     //History 정보를 서버에 전달
-    private fun addHistory(){
-        val addHistoryService = AddHistoryService()
-        addHistoryService.setAddHistoryView(this)
-        addHistoryService.addHistory(getContent())
-    }
+//    private fun addHistory(){
+//        val addHistoryService = AddHistoryService()
+//        addHistoryService.setAddHistoryView(this)
+//        addHistoryService.addHistory(getContent())
+//    }
 
     override fun onAddHistorySuccess(code: Int, message : String){
         //새로운 history 생성
         finish()
         Toast.makeText(this, "history가 생성되었습니다", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onAddHistoryFailure() {
+        TODO("Not yet implemented")
     }
 
 }

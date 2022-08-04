@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.ItemHistoryBinding
 
-class HistoryRVAdapter {
+class HistoryRVAdapter: RecyclerView.Adapter<HistoryRVAdapter.ViewHolder>()  {
 
     var datalist = mutableListOf<HistoryData>()
 
