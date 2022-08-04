@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/itemportfolio"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="15dp"
@@ -30,6 +31,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
+                android:id="@+id/itemportfolio_works_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00"
@@ -44,6 +46,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/img_mypage_likerecord"/>
             <TextView
+                android:id="@+id/itemportfolio_like_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="000"

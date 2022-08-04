@@ -16,7 +16,7 @@
         android:title="검색"/>
 
     <item
-        android:id="@+id/chattingFragment"
+        android:id="@+id/chatFragment"
         android:icon="@drawable/selector_icon_bnv_chatting"
         app:showAsAction="always"
         android:enabled="true"

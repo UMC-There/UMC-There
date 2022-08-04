@@ -1,6 +1,8 @@
 package com.example.there_android
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +12,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 
 class MyPageFragment : Fragment() {
     private lateinit var binding: FragmentMypageBinding
-    private val tabIconArray = arrayListOf(R.drawable.btn_mypage_works, R.drawable.btn_mypage_portfolio)
+    private val tabIconArray = arrayListOf(R.drawable.btn_mypage_grid, R.drawable.btn_mypage_list)
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,18 +22,21 @@ class MyPageFragment : Fragment() {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
 
-        //추가 기록하기 버튼 이동
-//        binding.myprofileAddIv.setOnClickListener {
-//            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AddRecordFragment()).commitAllowingStateLoss()
-//        }
+
+        //페이지 이동
+        binding.mypageAddIv.setOnClickListener {
+            val intent = Intent(context, AddPostActivity::class.java)
+            startActivity(intent)
+            //(activity as MainActivity).startActivity(intent)
+        }
+
 
         //viewpager 어댑터 연결, 탭레이아웃 연결
-        val AdapterMypage = VPAdapterMyPage(this)
-        binding.mypageViewpager.adapter = AdapterMypage
+        val AdapterMypage = MyPageVPAdapter(this)
+        binding.mypageViewpager.adapter= AdapterMypage
         TabLayoutMediator(binding.mypageTablayout, binding.mypageViewpager){
             tab, position -> tab.setIcon(tabIconArray[position])
         }.attach()
-
 //        val viewPager = binding.mypageViewpager
 //        val tabLayout = binding.mypageTablayout
 //        viewPager.adapter = VPAdapterMyPage(this)
@@ -39,6 +44,16 @@ class MyPageFragment : Fragment() {
 //            tab, position -> tab.setIcon(tabIconArray[position])
 //        }.attach()
 
-        return binding.root
+
+//        binding.mypageScrollview.run {
+//            header = binding.mypageTablayout
+//            stickListener = { _ ->
+//                Log.d("LOGGER_TAG", "stickListener")
+//            }
+//            freeListener = { _ ->
+//                Log.d("LOGGER_TAG", "freeListener")
+//            }
+//        }
+            return binding.root
     }
 }

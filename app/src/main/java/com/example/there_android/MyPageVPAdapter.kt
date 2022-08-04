@@ -3,7 +3,7 @@ package com.example.there_android
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class VPAdapterMyPage(fragment: Fragment) :
+class MyPageVPAdapter(fragment: Fragment) :
     FragmentStateAdapter(fragment) {
 
     override fun getItemCount(): Int = 2
