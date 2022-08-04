@@ -22,12 +22,14 @@ class MyPageFragment : Fragment() {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
 
+
         //페이지 이동
         binding.mypageAddIv.setOnClickListener {
             val intent = Intent(context, AddPostActivity::class.java)
             startActivity(intent)
             //(activity as MainActivity).startActivity(intent)
         }
+
 
         //viewpager 어댑터 연결, 탭레이아웃 연결
         val AdapterMypage = MyPageVPAdapter(this)

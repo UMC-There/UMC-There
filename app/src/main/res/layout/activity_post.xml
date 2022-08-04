@@ -182,7 +182,7 @@
             app:layout_constraintTop_toBottomOf="@id/post_context_cl"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/post_history_cl"
+            android:id="@+id/post_history_header_cl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/post_line"
@@ -213,13 +213,44 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginEnd="22dp"/>
 
+            <ImageView
+                android:id="@+id/post_history_close_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_post_down"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="22dp"
+                android:visibility="invisible"/>
+
+            <ImageView
+                android:id="@+id/post_add_history_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/btn_post_add"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="58dp"
+                android:visibility="invisible"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E7EAEE"
-            app:layout_constraintTop_toBottomOf="@id/post_history_cl"/>
+            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"/>
+
+        <FrameLayout
+            android:id="@+id/post_history_fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"
+            android:visibility="invisible"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
