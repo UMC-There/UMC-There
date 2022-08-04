@@ -45,29 +45,14 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             app:layout_constraintTop_toBottomOf="@+id/addpost_v1">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작품명"
-                android:textSize="14sp"
-                android:layout_marginTop="37dp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
-            <EditText
-                android:id="@+id/addpost_postname_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="작품명을 입력하세요"
-                android:textSize="14sp"
-                android:layout_marginTop="56dp"
-                app:layout_constraintTop_toTopOf="parent"/>
+
             <ImageView
                 android:id="@+id/addpost_image_iv"
                 android:layout_width="match_parent"
                 android:layout_height="343dp"
                 android:background="#656565"
-                android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@+id/addpost_postname_et"/>
+                android:layout_marginTop="37dp"
+                app:layout_constraintTop_toBottomOf="@id/addpost_v1"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -26,11 +26,10 @@ class AddPostActivity : AppCompatActivity() {
     }
 
     private fun getWork(): Work {
-        val title: String = binding.addpostPostnameEt.text.toString()
         val content: String = binding.addpostPostintroEt.text.toString()
         val hashtag: String = binding.addpostPosttagEt.text.toString()
 
-        return Work(title, content, hashtag)
+        return Work(content, hashtag)
     }
 
     private fun addPosting() {
