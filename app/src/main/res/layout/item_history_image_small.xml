@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/history_image_small_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_history_no_img"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/history_image_small_delete_background_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_history_delete_background"
+        app:layout_constraintStart_toEndOf="@id/history_image_small_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="-12dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_history_delete"
+        app:layout_constraintStart_toStartOf="@id/history_image_small_delete_background_iv"
+        app:layout_constraintEnd_toEndOf="@id/history_image_small_delete_background_iv"
+        app:layout_constraintTop_toTopOf="@id/history_image_small_delete_background_iv"
+        app:layout_constraintBottom_toBottomOf="@id/history_image_small_delete_background_iv"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

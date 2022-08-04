@@ -22,7 +22,7 @@ class MyPageFragment : Fragment() {
 
         //추가 기록하기 버튼 이동
 //        binding.myprofileAddIv.setOnClickListener {
-//            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main, AddRecordFragment()).commitAllowingStateLoss()
+//            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AddRecordFragment()).commitAllowingStateLoss()
 //        }
 
         //viewpager 어댑터 연결, 탭레이아웃 연결
