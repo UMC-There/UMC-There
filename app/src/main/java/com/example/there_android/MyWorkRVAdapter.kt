@@ -1,7 +1,11 @@
 package com.example.there_android
 
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.ItemWorkBinding
 
@@ -26,7 +30,12 @@ class MyWorkRVAdapter(private val portfolioList: ArrayList<MyPageData>) : Recycl
 
     override fun onBindViewHolder(holder: MyWorkRVAdapter.ViewHolder, position: Int) {
         holder.bind(portfolioList[position])
-        holder.binding.itemworksIv.setOnClickListener { workClickListener.onItemClick((portfolioList[position])) }
+//        holder.binding.itemworksIv.setOnClickListener { workClickListener.onItemClick((portfolioList[position])) }
+        holder.itemView.setOnClickListener {
+            Log.d("Click the Item", "open")
+            val intent = Intent(holder.itemView?.context, PostActivity::class.java)
+            ContextCompat.startActivity(holder.itemView.context, intent, null)
+        }
     }
 
     override fun getItemCount(): Int = portfolioList.size
