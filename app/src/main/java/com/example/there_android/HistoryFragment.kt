@@ -31,7 +31,11 @@ class HistoryFragment:Fragment() {
         //어댑터 객체 생성
         val adapter = HistoryRVAdapter()
         adapter.datalist = hData
-        //binding.historyListRv.adapter = adapter
+        binding.historyListRv.adapter = adapter
         binding.historyListRv.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
+
+//    fun addItem(){
+//
+//    }
 }

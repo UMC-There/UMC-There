@@ -16,6 +16,11 @@ class HomeFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        binding.homeAlarmIv.setOnClickListener{
+            (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AlarmFragment()).commitAllowingStateLoss()
+        }
+
         return binding.root
     }
 }
