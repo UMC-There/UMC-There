@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/chattingroom_back_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_chattingroom_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="55dp"
+        android:layout_marginStart="26dp"/>
+
+    <TextView
+        android:id="@+id/chattingroom_nickname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닉네임"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/chattingroom_back_iv"
+        app:layout_constraintBottom_toBottomOf="@id/chattingroom_back_iv"/>
+
+    <View
+        android:id="@+id/chattingroom_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E7EAEE"
+        app:layout_constraintTop_toBottomOf="@id/chattingroom_nickname_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="14dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chattingroom_chatting_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/chattingroom_line"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <EditText
+        android:id="@+id/chattingroom_chat_et"
+        android:layout_width="330dp"
+        android:layout_height="40dp"
+        android:background="@drawable/border_chattingroom_chat"
+        android:drawableStart="@drawable/btn_chattingroom_add"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="13dp"
+        android:layout_marginBottom="34dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/chattingroom_send_cl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="17dp"
+        android:layout_marginBottom="34dp">
+
+        <ImageView
+            android:id="@+id/chattingroom_send_background_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_chattingroom_send_background"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/btn_chattingroom_send"
+            app:layout_constraintStart_toStartOf="@id/chattingroom_send_background_iv"
+            app:layout_constraintEnd_toEndOf="@id/chattingroom_send_background_iv"
+            app:layout_constraintBottom_toBottomOf="@id/chattingroom_send_background_iv"
+            app:layout_constraintTop_toTopOf="@id/chattingroom_send_background_iv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
