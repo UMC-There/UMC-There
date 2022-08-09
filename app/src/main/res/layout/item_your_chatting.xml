@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/your_chatting_profile_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_chattingroom_profile"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/shape_circle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 

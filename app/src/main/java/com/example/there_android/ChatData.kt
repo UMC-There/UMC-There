@@ -4,6 +4,6 @@ class ChatData (
      val nickname : String,
      val time : Int,
      val text : String,
-     val count : Int
-
+     val count : Int,
+     val profile : String
 )

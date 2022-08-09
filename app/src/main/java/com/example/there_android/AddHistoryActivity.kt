@@ -134,14 +134,14 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
         }
     }
 
-    //Request로 보낼 내용 얻는 함수
+////    Request로 보낼 내용 얻는 함수
 //    private fun getContent() : AddHistoryRequest {
 //        val title : String = binding.addhistoryAddtitleEt.text.toString()
 //        val content : String = binding.addhistoryAddcontentEt.text.toString()
-//        //return AddHistoryRequest()
+//        return AddHistoryRequest()
 //    }
-
-    //History 정보를 서버에 전달
+//
+////    History 정보를 서버에 전달
 //    private fun addHistory(){
 //        val addHistoryService = AddHistoryService()
 //        addHistoryService.setAddHistoryView(this)
