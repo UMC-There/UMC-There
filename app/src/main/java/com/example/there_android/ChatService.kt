@@ -20,13 +20,13 @@ class ChatService {
                 val resp: ChatResponse = response.body()!!
                 Log.d("GETCHAT/SUCCESS", resp.message)
                 when(resp.code){
-                    1000 -> chatView.onChatSuccess(resp.result)
-                    4000 -> chatView.onChatFailure()
+                    200 -> chatView.onChatSuccess(resp.result)
+                    else -> chatView.onChatFailure()
                 }
             }
 
             override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
-                Log.d("GETCHAT/FAILURE", t.cause.toString())
+                Log.d("GETCHAT/FAILURE", t.message.toString())
             }
         })
     }
