@@ -26,7 +26,7 @@ class UserService {
                     val joinResponse: UserResponse = response.body()!!
                     Log.d("JOIN-RESPONSE", joinResponse.toString())
                         //joinView.onJoinSuccess()
-                    when (val code = joinResponse.code) {
+                    when (joinResponse.code) {
                         0 -> joinView.onJoinSuccess()
                         else -> joinView.onJoinFailure()
                     }

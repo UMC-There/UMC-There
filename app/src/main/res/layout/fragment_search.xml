@@ -1,6 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="54dp"
+    android:paddingHorizontal="24dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<!--    <ImageView-->
+<!--        android:id="@+id/search_back_iv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:src="@drawable/btn_login_back"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/search_searchview"/>-->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_searchview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="검색어를 입력"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="인기 검색어"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_searchview"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search_popular1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="유화"
+        android:textSize="14sp"
+        android:background="#F7F8F9"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/search_searchview"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search_popular2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="단색화"
+        android:textSize="14sp"
+        android:background="#F7F8F9"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@id/search_popular1"
+        app:layout_constraintTop_toBottomOf="@+id/search_searchview" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/search_popular3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="디지털 아트"
+        android:textSize="14sp"
+        android:background="#F7F8F9"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toEndOf="@id/search_popular2"
+        app:layout_constraintTop_toBottomOf="@+id/search_searchview" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
