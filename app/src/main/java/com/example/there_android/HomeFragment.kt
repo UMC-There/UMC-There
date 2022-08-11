@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.there_android.databinding.FragmentHomeBinding
 
-class HomeFragment: Fragment() {
+class HomeFragment: Fragment(), HomeView {
     lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
@@ -15,6 +15,7 @@ class HomeFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        loadHome()
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         binding.homeAlarmIv.setOnClickListener{
@@ -22,5 +23,19 @@ class HomeFragment: Fragment() {
         }
 
         return binding.root
+    }
+
+    fun loadHome(){
+        val homeService = HomeService()
+        homeService.setHomeView(this)
+        homeService.getHome()
+    }
+
+    override fun onHomeViewSuccess(response: HomeResponse) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onHomeViewFailure() {
+        TODO("Not yet implemented")
     }
 }
