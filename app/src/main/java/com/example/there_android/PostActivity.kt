@@ -27,7 +27,7 @@ class PostActivity :AppCompatActivity() {
     }
 
     private fun openHistory(){
-        supportFragmentManager.beginTransaction().replace(R.id.post_history_fl, HistoryFragment())
+        //supportFragmentManager.beginTransaction().replace(R.id.post_history_fl, HistoryFragment())
 
         binding.postHistoryOpenIv.setOnClickListener{
             binding.postHistoryOpenIv.visibility = View.INVISIBLE

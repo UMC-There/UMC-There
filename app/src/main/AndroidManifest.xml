@@ -28,6 +28,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddPostActivity"/>
+        <activity android:name=".WelcomeActivity"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".JoinActivity"/>
     </application>
 
 </manifest>
