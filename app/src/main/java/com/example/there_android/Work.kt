@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "WorkTable")
 data class Work(
-    @SerializedName(value = "title")val title: String,
+    //@SerializedName(value = "title")val title: String,
     //@SerializedName(value = "imgUrl")val imgUrl: String,
     @SerializedName(value = "content")val content: String,
     @SerializedName(value = "hashtag")val hashtag: String,

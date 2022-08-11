@@ -1,5 +1,6 @@
 package com.example.there_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +19,15 @@ class HomeFragment: Fragment(), HomeView {
         loadHome()
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+
         binding.homeAlarmIv.setOnClickListener{
             (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AlarmFragment()).commitAllowingStateLoss()
+        }
+
+
+        binding.homeTestlogin.setOnClickListener{
+            val intent = Intent(context, WelcomeActivity::class.java)
+            startActivity(intent)
         }
 
         return binding.root
