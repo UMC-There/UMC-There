@@ -2,6 +2,7 @@ package com.example.there_android
 
 import android.graphics.Insets.add
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,9 +34,10 @@ class ChatFragment : Fragment(), ChatView {
         binding.chatRecyclerview.layoutManager = LinearLayoutManager(this.context)
         binding.chatRecyclerview.setHasFixedSize(true)
     }
+
     private fun getContent(): ChatRequest{
         //임의의 값
-        val userIdx : Int = 1
+        val userIdx : Int = 2
         return ChatRequest(userIdx)
     }
 
@@ -62,7 +64,7 @@ class ChatFragment : Fragment(), ChatView {
     }
 
     override fun onChatFailure() {
-        TODO("Not yet implemented")
+        Log.d("CHAT/SERVER", "not connected")
     }
 
 

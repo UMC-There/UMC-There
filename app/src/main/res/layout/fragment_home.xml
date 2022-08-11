@@ -43,8 +43,10 @@
         android:id="@+id/home_myfollow_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_myfollow_tv"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"/>
 
     <TextView
@@ -63,8 +65,10 @@
         android:id="@+id/home_best_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/home_best_tv"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
