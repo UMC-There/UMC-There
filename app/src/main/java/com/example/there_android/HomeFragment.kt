@@ -24,12 +24,6 @@ class HomeFragment: Fragment(), HomeView {
             (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AlarmFragment()).commitAllowingStateLoss()
         }
 
-
-        binding.homeTestlogin.setOnClickListener{
-            val intent = Intent(context, WelcomeActivity::class.java)
-            startActivity(intent)
-        }
-
         return binding.root
     }
 

@@ -13,6 +13,11 @@ class WelcomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        //코드 테스트 메인화면으로 이동
+        binding.welcomeTestBtn.setOnClickListener{
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
 
         //로그인
         binding.welcomeLoginBtn.setOnClickListener{
