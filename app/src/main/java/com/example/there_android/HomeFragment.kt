@@ -24,6 +24,7 @@ class HomeFragment: Fragment(), HomeView {
             (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AlarmFragment()).commitAllowingStateLoss()
         }
 
+
         return binding.root
     }
 

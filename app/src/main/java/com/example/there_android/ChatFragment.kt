@@ -21,7 +21,7 @@ class ChatFragment : Fragment(), ChatView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loadData()
+        //loadData()
 
         binding = FragmentChatBinding.inflate(inflater, container, false)
 

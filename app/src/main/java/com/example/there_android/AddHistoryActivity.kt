@@ -3,28 +3,20 @@ package com.example.there_android
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Insets.add
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ActivityAddhistoryBinding
-import java.io.File
-import java.util.jar.Manifest
 
 class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
@@ -33,10 +25,11 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         binding = ActivityAddhistoryBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //X 표시 누르면 Post 화면으로 전환
         binding.addhistoryCloseIv.setOnClickListener {
