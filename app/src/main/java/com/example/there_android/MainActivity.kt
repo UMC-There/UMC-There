@@ -16,7 +16,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         initBottomNavigation()
     }
     private fun toAddPost() {
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initBottomNavigation(){
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, HomeFragment())
+            .replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
         binding.mainBnv.itemIconTintList = null
 
         binding.mainBnv.setOnItemSelectedListener { item ->
