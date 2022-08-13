@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -37,12 +38,10 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
                 .setMessage("해당 페이지를 떠나시겠습니까? 작성 페이지를 떠나면 작성 중인 글이 저장되지 않습니다.")
                 .setPositiveButton("확인",
                 DialogInterface.OnClickListener { dialog, which ->
-                    startActivity(intent)
                     finish()
                 })
                 .setNegativeButton("취소",
                     DialogInterface.OnClickListener { dialog, which ->
-                        startActivity(intent)
                     })
             builder.show()
         }
@@ -55,13 +54,18 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
         //사진 첨부
         binding.addhistoryAddimgCl.setOnClickListener {
-            binding.addhistoryAddimgCl.visibility = View.INVISIBLE
             binding.addhistoryBigImageRv.visibility = View.VISIBLE
+            binding.addhistorySmallImageRv.visibility = View.VISIBLE
+
             selectGallery()
-            val recyclerview = binding.addhistoryBigImageRv
-            val layoutManager = LinearLayoutManager(this)
-            recyclerview.layoutManager = layoutManager
-            recyclerview.adapter = adapter
+            binding.addhistoryBigImageRv.adapter = adapter
+            binding.addhistorySmallImageRv.adapter = adapter
+
+            binding.addhistoryBigImageRv.layoutManager = LinearLayoutManager(this)
+            binding.addhistorySmallImageRv.layoutManager = LinearLayoutManager(this)
+
+            binding.addhistoryBigImageRv.setHasFixedSize(true)
+            binding.addhistoryAddimgCl.visibility = View.INVISIBLE
         }
 
         //제목 텍스트 작성 시 체크 표시
@@ -108,6 +112,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
     ){
         result->
         if(result.resultCode == RESULT_OK){
+            Log.d("Image/", "연결되었습니다.")
             //          //이미지를 받으면 ImageView에 적용
 //            val imageUri = result.data?.data
 //            imageUri?.let{
@@ -119,6 +124,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 //                    .load(imageUri)
 
             if(result.data?.clipData != null){
+                Log.d("IMAGE/DATA", "more than 1")
                 val count = result.data?.clipData!!.itemCount
                 if(count > 10) {
                     Toast.makeText(this, "사진은 10개까지 선택 가능합니다.", Toast.LENGTH_SHORT)
@@ -169,6 +175,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
                 arrayOf(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE), REQ_GALLERY)
         }
         else{
+            Log.d("/APPLY", "갤러리 실행")
             //권한 있는 경우 갤러리 실행
             val intent = Intent(Intent.ACTION_PICK)
             //다중 이미지 가져올 수 있도록 세팅
@@ -205,4 +212,5 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
     override fun onAddHistoryFailure() {
         TODO("Not yet implemented")
     }
+
 }

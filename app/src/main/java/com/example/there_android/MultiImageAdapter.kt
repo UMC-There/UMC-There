@@ -9,12 +9,13 @@ import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ItemAddhistoryImageBinding
 
 class MultiImageAdapter(private val items : ArrayList<Uri>, val context: Context): RecyclerView.Adapter<MultiImageAdapter.ViewHolder>(){
+
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         Glide.with(context).load(item)
-            .into(holder.image)
+            //.into(holder.image)
     }
 
     override fun onCreateViewHolder(
@@ -27,8 +28,10 @@ class MultiImageAdapter(private val items : ArrayList<Uri>, val context: Context
 
     class ViewHolder(private val binding: ItemAddhistoryImageBinding) : RecyclerView.ViewHolder(binding.root){
         var image = binding.itemAddhistoryImageIv
-        fun bind(){
-            //binding.itemAddhistoryImageIv
-        }
+
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 }

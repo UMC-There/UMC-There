@@ -10,12 +10,8 @@ data class ChatResponse(
 ){
     data class Result(
         @SerializedName("count") val count : Int,
-        @SerializedName("roomIdx") val roomIdx : Int,
-        @SerializedName("getUserInfoRes") val getUserInfoRes : GetUserInfoRes?= null
-    ){
-        data class GetUserInfoRes(
-            @SerializedName("nickname") val nickname : String,
-            @SerializedName("profileImgUrl") val profileImgUrl : String
-        )
-    }
+        @SerializedName("nickName") val nickName: String,
+        @SerializedName("profileImgUrl") val profileImgUrl : String,
+        @SerializedName("roomIdx") val roomIdx : Int
+    )
 }
