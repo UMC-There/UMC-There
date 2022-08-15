@@ -11,6 +11,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.Window
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -28,9 +29,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
-
-    private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
@@ -92,29 +91,13 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
             }
         })
 
-        //edittext 키보드 올리기 & 내리기
-        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.showSoftInput(binding.addhistoryAddtitleEt, 0)
-        imm.showSoftInput(binding.addhistoryAddcontentEt, 0)
 
+        //키보드 내리기
         binding.addhistoryCl.setOnClickListener {
+            val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(editText.windowToken, 0)
         }
-
-        keyboardVisibilityUtils = KeyboardVisibilityUtils(window,
-        onShowKeyboard = {keyboardHeight ->
-            binding.addhistorySv.run {
-                smoothScrollBy(scrollX, scrollY + keyboardHeight)
-            }
-        })
     }
-
-    override fun onDestroy() {
-        keyboardVisibilityUtils.detachKeyboardListener()
-        super.onDestroy()
-    }
-
-
 
     companion object{
 //        const val REVIEW_MIN_LENGTH = 10
