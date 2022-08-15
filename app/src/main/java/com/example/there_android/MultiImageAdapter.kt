@@ -14,8 +14,7 @@ class MultiImageAdapter(private val items : ArrayList<Uri>, val context: Context
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        Glide.with(context).load(item)
-            //.into(holder.image)
+        Glide.with(context).load(item).into(holder.image)
     }
 
     override fun onCreateViewHolder(

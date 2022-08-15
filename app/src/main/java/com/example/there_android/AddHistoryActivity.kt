@@ -1,5 +1,6 @@
 package com.example.there_android
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,6 +11,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -25,6 +28,8 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
+
+    private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,7 +77,6 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
         val editText = binding.addhistoryAddtitleEt
         editText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -85,11 +89,31 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
         })
 
+        //edittext 키보드 올리기 & 내리기
+        val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.showSoftInput(binding.addhistoryAddtitleEt, 0)
+        imm.showSoftInput(binding.addhistoryAddcontentEt, 0)
+
+        binding.addhistoryCl.setOnClickListener {
+            imm.hideSoftInputFromWindow(editText.windowToken, 0)
+        }
+
+        keyboardVisibilityUtils = KeyboardVisibilityUtils(window,
+        onShowKeyboard = {keyboardHeight ->
+            binding.addhistorySv.run {
+                smoothScrollBy(scrollX, scrollY + keyboardHeight)
+            }
+        })
     }
+
+    override fun onDestroy() {
+        keyboardVisibilityUtils.detachKeyboardListener()
+        super.onDestroy()
+    }
+
 
 
     companion object{
