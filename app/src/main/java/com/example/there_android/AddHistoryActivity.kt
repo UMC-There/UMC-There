@@ -1,5 +1,6 @@
 package com.example.there_android
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -10,6 +11,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -25,7 +29,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
     var list = ArrayList<Uri>()
     val adapter = MultiImageAdapter(list, this)
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
@@ -72,7 +76,6 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
         val editText = binding.addhistoryAddtitleEt
         editText.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
 
             override fun afterTextChanged(p0: Editable?) {
@@ -85,12 +88,16 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                TODO("Not yet implemented")
             }
         })
 
-    }
 
+        //키보드 내리기
+        binding.addhistoryCl.setOnClickListener {
+            val imm = this.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(editText.windowToken, 0)
+        }
+    }
 
     companion object{
 //        const val REVIEW_MIN_LENGTH = 10

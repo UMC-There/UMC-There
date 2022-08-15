@@ -28,7 +28,8 @@
 
         <activity android:name=".ChattingRoomActivity"/>
         <activity android:name=".PostActivity"/>
-        <activity android:name=".AddHistoryActivity"/>
+        <activity android:name=".AddHistoryActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".WelcomeActivity"
             android:exported="true">
