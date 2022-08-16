@@ -30,7 +30,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddPostActivity"/>
-        <activity android:name=".ChattingRoomActivity"/>
+        <activity android:name=".ChattingRoomActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".PostActivity"/>
         <activity android:name=".AddHistoryActivity"/>
         <activity android:name=".LoginActivity"/>
