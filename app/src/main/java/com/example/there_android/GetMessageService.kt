@@ -24,7 +24,7 @@ class GetMessageService {
                 val resp : GetMessageResponse = response.body()!!
                 Log.d("GETMESSAGE/SUCCESS", resp.message)
                 when(resp.code){
-                    200 -> getMessageView.onGetMessageSuccess(resp)
+                    200 -> getMessageView.onGetMessageSuccess(resp.result)
                     else -> getMessageView.onGetMessageFailure()
                 }
             }

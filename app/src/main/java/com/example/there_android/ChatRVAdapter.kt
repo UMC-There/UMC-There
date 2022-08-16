@@ -1,9 +1,11 @@
 package com.example.there_android
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ItemChatlistBinding
@@ -32,6 +34,11 @@ class ChatRVAdapter(val context: Context, val chatList: List<ChatResponse.Result
             binding.chatTimeTv.text = "오후 9 : 00"
             //binding.chatTimeTv.text = chatData.time.toString()
             binding.chatCountTv.text = chatData.count.toString()
+
+            itemView.setOnClickListener {
+                val intent = Intent(context, ChattingRoomActivity::class.java)
+                ContextCompat.startActivity(context, intent, null)
+            }
         }
     }
 

@@ -25,6 +25,7 @@ class ChatFragment : Fragment(), ChatView {
 
         binding = FragmentChatBinding.inflate(inflater, container, false)
 
+
         return binding.root
     }
 
