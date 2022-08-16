@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
 
-interface AuthRetrofitInterface {
+interface AddPostInterface {
     @POST("/posts/user")
-    fun addpost(@Body work: Work) : Call<AuthResponse>
+    fun addpost(@Body work: Work) : Call<AddPostResponse>
 }

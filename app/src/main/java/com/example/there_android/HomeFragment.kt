@@ -1,5 +1,6 @@
 package com.example.there_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,12 +16,14 @@ class HomeFragment: Fragment(), HomeView {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loadHome()
+        //loadHome()
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
 
         binding.homeAlarmIv.setOnClickListener{
             (context as MainActivity).supportFragmentManager.beginTransaction().replace(R.id.main_frm, AlarmFragment()).commitAllowingStateLoss()
         }
+
 
         return binding.root
     }
