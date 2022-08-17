@@ -1,6 +1,8 @@
 package com.example.there_android
 
 import android.content.Intent
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +23,8 @@ class MyPageFragment : Fragment() {
     ): View? {
         binding = FragmentMypageBinding.inflate(inflater, container, false)
 
+        binding.mypageProfileimgIv.background = ShapeDrawable(OvalShape())
+        binding.mypageProfileimgIv.clipToOutline = true
 
 
         //페이지 이동
