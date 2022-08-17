@@ -4,10 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ActivityAddhistoryBinding
 import com.example.there_android.databinding.ActivityPostBinding
 
-class PostActivity :AppCompatActivity() {
+class PostActivity :AppCompatActivity() , GetPostView{
 
     lateinit var binding: ActivityPostBinding
 
@@ -27,9 +28,8 @@ class PostActivity :AppCompatActivity() {
             finish()
         }
 
-
+        loadData()
         openHistory()
-
     }
 
     private fun openHistory(){
@@ -48,6 +48,29 @@ class PostActivity :AppCompatActivity() {
             binding.postHistoryFl.visibility = View.INVISIBLE
             binding.postAddHistoryIv.visibility = View.INVISIBLE
         }
+    }
+
+    private fun getContent() : GetPostRequest{
+        val postIdx : Int = 1
+        return GetPostRequest(postIdx)
+    }
+
+    private fun loadData(){
+        val getPostService = GetPostService()
+        getPostService.setGetPostView(this)
+        getPostService.getPost(getContent())
+    }
+
+    override fun onGetPostSuccess(result: GetPostResponse.Result) {
+        binding.postNicknameTv.text = result.nickname
+        binding.postContextTv.text = result.content
+        binding.postLikeNumTv.text = result.likeCount.toString()
+        Glide.with(binding.postProfileIv.context).load(result.profileImgUrl).into(binding.postProfileIv)
+        Glide.with(binding.postImageIv.context).load(result.imgUrl).into(binding.postImageIv)
+    }
+
+    override fun onGetPostFailure() {
+        TODO("Not yet implemented")
     }
 
 }

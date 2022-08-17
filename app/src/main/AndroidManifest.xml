@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.There_android"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -27,6 +28,11 @@
         <activity android:name=".PostActivity"/>
         <activity android:name=".AddHistoryActivity"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".AddPostActivity"/>
+        <activity android:name=".ChattingRoomActivity"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".JoinActivity"/>
 
         <activity android:name=".WelcomeActivity"
             android:exported="true">
@@ -35,14 +41,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-        <activity android:name=".AddPostActivity"/>
-        <activity android:name=".ChattingRoomActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".JoinActivity"/>
-
 
     </application>
 

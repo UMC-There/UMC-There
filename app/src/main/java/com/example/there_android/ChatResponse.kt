@@ -9,9 +9,11 @@ data class ChatResponse(
     @SerializedName("result") val result : List<Result>
 ){
     data class Result(
-        @SerializedName("count") val count : Int,
+        @SerializedName("roomIdx") val roomIdx : Int,
+        @SerializedName("senderIdx") val senderIdx: Int,
+        @SerializedName("receiverIdx") val receiverIdx : Int,
         @SerializedName("nickName") val nickName: String,
         @SerializedName("profileImgUrl") val profileImgUrl : String,
-        @SerializedName("roomIdx") val roomIdx : Int
+        @SerializedName("count") val count : Int
     )
 }
