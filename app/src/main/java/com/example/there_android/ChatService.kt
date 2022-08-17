@@ -15,13 +15,13 @@ class ChatService {
     }
 
     fun getChat(request: ChatRequest){
-        getChat.getChat(request.userIdx.toString()).enqueue(object : Callback<ChatResponse> {
+        getChat.getChat(request.userIdx).enqueue(object : Callback<ChatResponse> {
             override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
                 val resp: ChatResponse = response.body()!!
                 Log.d("GETCHAT/SUCCESS", resp.message)
                 when(resp.code){
-                    200 -> chatView.onChatSuccess(resp.result)
-                    else -> chatView.onChatFailure()
+                    200, 1000 -> chatView.onChatSuccess(resp.result)
+                    else -> chatView.onChatFailure(resp.code)
                 }
             }
 

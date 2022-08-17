@@ -1,6 +1,5 @@
 package com.example.there_android
 
-import android.graphics.Insets.add
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.FragmentChatBinding
 
 class ChatFragment : Fragment(), ChatView {
@@ -25,11 +25,14 @@ class ChatFragment : Fragment(), ChatView {
 
         binding = FragmentChatBinding.inflate(inflater, container, false)
 
+
         return binding.root
     }
 
-    private fun setAdapter(chatList : ArrayList<ChatData>){
-        val mAdapter = this.context?.let { ChatRVAdapter(it, chatList) }
+    private fun setAdapter(chatList : List<ChatResponse.Result>){
+        //val mAdapter = ChatRVAdapter(chatList)
+        //val mAdapter = this.context?.let { ChatRVAdapter(it, chatList) }
+        val mAdapter = ChatRVAdapter(this.requireContext(), chatList)
         binding.chatRecyclerview.adapter = mAdapter
         binding.chatRecyclerview.layoutManager = LinearLayoutManager(this.context)
         binding.chatRecyclerview.setHasFixedSize(true)
@@ -37,7 +40,7 @@ class ChatFragment : Fragment(), ChatView {
 
     private fun getContent(): ChatRequest{
         //임의의 값
-        val userIdx : Int = 2
+        val userIdx : Int = 1
         return ChatRequest(userIdx)
     }
 
@@ -48,23 +51,12 @@ class ChatFragment : Fragment(), ChatView {
     }
 
     override fun onChatSuccess(result: List<ChatResponse.Result>) {
-        fun getList(): ArrayList<ChatData> {
-            var chatList = arrayListOf<ChatData>()
-            for (result in result) {
-                var count = result.count
-                var nickname = result.getUserInfoRes?.nickname
-                var profileImgUrl = result.getUserInfoRes?.profileImgUrl
-                var roomIdx = result.roomIdx
-
-                chatList.add(ChatData(nickname!!, 9, "text", count, profileImgUrl!!))
-            }
-            return chatList
-        }
-        setAdapter(getList())
+        setAdapter(result)
     }
 
-    override fun onChatFailure() {
-        Log.d("CHAT/SERVER", "not connected")
+
+    override fun onChatFailure(code : Int) {
+        Log.d("CHAT/SERVER", code.toString())
     }
 
 

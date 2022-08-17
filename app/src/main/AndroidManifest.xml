@@ -25,11 +25,9 @@
             android:name=".MainActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".AddPostActivity"/>
-
-        <activity android:name=".ChattingRoomActivity"/>
         <activity android:name=".PostActivity"/>
-        <activity android:name=".AddHistoryActivity"/>
+        <activity android:name=".AddHistoryActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".WelcomeActivity"
             android:exported="true">
@@ -49,8 +47,12 @@
                     android:scheme="kakao4eef694b16fcc83f835bc72fe162a5f7" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddPostActivity"/>
+        <activity android:name=".ChattingRoomActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".JoinActivity"/>
+
 
     </application>
 

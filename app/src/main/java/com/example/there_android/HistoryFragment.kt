@@ -24,6 +24,8 @@ class HistoryFragment:Fragment() {
 
 
 
+        initHistoryRecyclerView()
+
         return binding.root
     }
 

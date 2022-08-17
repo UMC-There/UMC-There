@@ -7,6 +7,6 @@ import retrofit2.http.Path
 interface ChatInterface {
     @GET("/chat/room/user/{userIdx}")
     fun getChat(
-        @Path("userIdx") userIdx : String
+        @Path("userIdx") userIdx : Int
     ):Call<ChatResponse>
 }

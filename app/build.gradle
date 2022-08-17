@@ -2,7 +2,6 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-//    id 'com.google.gms.google-services'
 }
 
 android {
@@ -39,9 +38,12 @@ android {
 }
 
 dependencies {
+    //갤러리 연결
+    implementation 'androidx.activity:activity:1.3.0-alpha08'
+    implementation 'androidx.fragment:fragment:1.4.0-alpha01'
 
     //stomp
-    //implementation 'com.github.bishoybasily:stomp:Tag'
+    implementation 'com.github.bishoybasily:stomp:2.0.5'
 
     //Coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3"

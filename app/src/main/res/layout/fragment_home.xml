@@ -98,6 +98,4 @@
             app:layout_constraintBottom_toBottomOf="@id/home_add_background_iv"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
