@@ -5,7 +5,6 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ItemChatlistBinding
@@ -37,7 +36,12 @@ class ChatRVAdapter(val context: Context, val chatList: List<ChatResponse.Result
 
             itemView.setOnClickListener {
                 val intent = Intent(context, ChattingRoomActivity::class.java)
-                ContextCompat.startActivity(context, intent, null)
+                intent.putExtra("roomIdx", chatData.roomIdx)
+                intent.putExtra("senderIdx", chatData.senderIdx)
+                intent.putExtra("receiverIdx", chatData.receiverIdx)
+                Log.d("CHECK/INTENT/ChatRVA", "${chatData.receiverIdx}, ${chatData.roomIdx}, ${chatData.senderIdx}")
+                intent.run { context.startActivity(intent) }
+//                context.startActivity(intent)
             }
         }
     }
@@ -46,8 +50,6 @@ class ChatRVAdapter(val context: Context, val chatList: List<ChatResponse.Result
         val binding = ItemChatlistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
-
-    //override fun getItemCount() : Int = datalist.size
 
     override fun getItemCount(): Int {
         return chatList.size

@@ -9,7 +9,7 @@ import retrofit2.Response
 class GetMessageService {
     private lateinit var getMessageView: GetMessageView
 
-    val getMessageRetrofit = getRetrofit().create(GetMessageInterface::class.java)
+    private val getMessageRetrofit : GetMessageInterface = getRetrofit().create(GetMessageInterface::class.java)
 
     fun setMessageView(getMessageView: GetMessageView){
         this.getMessageView = getMessageView
@@ -24,7 +24,7 @@ class GetMessageService {
                 val resp : GetMessageResponse = response.body()!!
                 Log.d("GETMESSAGE/SUCCESS", resp.message)
                 when(resp.code){
-                    200 -> getMessageView.onGetMessageSuccess(resp.result)
+                    200, 1000 -> getMessageView.onGetMessageSuccess(resp.result)
                     else -> getMessageView.onGetMessageFailure()
                 }
             }
