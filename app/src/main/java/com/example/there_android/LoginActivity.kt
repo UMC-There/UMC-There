@@ -4,12 +4,18 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.there_android.databinding.ActivityLoginBinding
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
 import com.kakao.sdk.user.UserApiClient
+import java.util.regex.Matcher
+import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity(), LoginView {
     private lateinit var binding: ActivityLoginBinding
@@ -26,11 +32,51 @@ class LoginActivity : AppCompatActivity(), LoginView {
             val intent = Intent(this,JoinActivity::class.java)
             startActivity(intent)
         }
+        binding.loginPwvisibleIv.setOnClickListener{
+            visblePw()
+        }
+
         binding.loginBtn.setOnClickListener{
             login()
         }
         binding.loginKakaoBtn.setOnClickListener{
             kakaoLogin()
+        }
+    }
+
+    //비밀번호 show/hide
+    private fun visblePw() {
+        if(binding.loginPwEt.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+            binding.loginPwvisibleIv.setImageResource(R.drawable.btn_login_show);
+            binding.loginPwEt.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        }
+        else{
+            binding.loginPwvisibleIv.setImageResource(R.drawable.btn_login_hide);
+            binding.loginPwEt.setTransformationMethod(PasswordTransformationMethod.getInstance());
+
+        }
+    }
+    private fun checkPw() {
+        if (binding.loginIdEt.text.toString().isEmpty()) {
+            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        //비밀번호 검사
+        if (binding.loginPwEt.text.toString().isEmpty()) {
+            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        // 비밀번호 유효성 검사식1 : 숫자, 특수문자가 포함되어야 한다.
+        val symbol = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{6,12}\$"
+        // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
+        val alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])"
+        if (!Pattern.matches(symbol, binding.loginPwEt.text.toString())) {
+            binding.loginErrorTv.visibility = View.VISIBLE
+        }else {
+            // email과 password로 회원가입 진행
+            Toast.makeText(this, "비밀번호 유효성 확인", Toast.LENGTH_SHORT).show()
+            binding.loginErrorTv.visibility = View.INVISIBLE
+            //login()
         }
     }
 
@@ -42,16 +88,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 
     private fun login() {
-        if (binding.loginIdEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-//비밀번호 검사
-        if (binding.loginPwEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-
+        checkPw()
         val userService = UserService()
         userService.setLoginView(this)
         userService.login(getUser())
@@ -119,8 +156,10 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
+    //카카오 설치 시 카카오로 로그인, 미설치 시 카카오톡 계정으로 로그입
     if(UserApiClient.instance.isKakaoTalkLoginAvailable(this)){
-        UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
+       // UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
+        UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
     }else{
         UserApiClient.instance.loginWithKakaoAccount(this, callback = callback)
     }
