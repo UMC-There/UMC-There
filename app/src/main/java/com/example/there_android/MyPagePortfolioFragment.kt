@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.there_android.databinding.FragmentMypagePortfolioBinding
-import com.google.gson.Gson
 
 class MyPagePortfolioFragment : Fragment() {
     private lateinit var binding: FragmentMypagePortfolioBinding
@@ -29,11 +28,11 @@ class MyPagePortfolioFragment : Fragment() {
         }
 
         //리사이클러뷰 어댑터
-        val myPageRVAdapter = MyPageRVAdapter(myPageData)
-        binding.mypagePortfolioRecyclerview.adapter = myPageRVAdapter
+        val myPagePortfolioRVAdapter = MyPagePortfolioRVAdapter(myPageData)
+        binding.mypagePortfolioRecyclerview.adapter = myPagePortfolioRVAdapter
         binding.mypagePortfolioRecyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         //외부 객체 리스너 전달
-        myPageRVAdapter.setPortfolioClickListener(object : MyPageRVAdapter.PortfolioClickListener{
+        myPagePortfolioRVAdapter.setPortfolioClickListener(object : MyPagePortfolioRVAdapter.PortfolioClickListener{
             override fun onItemClick(portfolio: MyPageData) {
                 toPortfolioFragment(portfolio)
             }
@@ -42,14 +41,11 @@ class MyPagePortfolioFragment : Fragment() {
         return binding.root
     }
     private fun toPortfolioFragment(portfolio: MyPageData) {
+//        val intent = Intent(context,AddPostActivity::class.java)
+//        startActivity(intent)
         (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, MyPortfolioFragment()).apply {
-                arguments = Bundle().apply {
-                    val gson = Gson()
-                    val portfolioJson = gson.toJson(portfolio)
-                    putString("portfolio", portfolioJson)
-                }
-            }.commitAllowingStateLoss()
+            .replace(R.id.main_frm, MyPortfolioFragment())
+            .commitAllowingStateLoss()
     }
 
 }

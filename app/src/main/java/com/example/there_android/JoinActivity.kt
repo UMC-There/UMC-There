@@ -1,12 +1,14 @@
 package com.example.there_android
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.there_android.databinding.ActivityJoinBinding
+import java.util.regex.Pattern
 
 class JoinActivity : AppCompatActivity(), JoinView {
     private lateinit var binding: ActivityJoinBinding
@@ -20,17 +22,42 @@ class JoinActivity : AppCompatActivity(), JoinView {
             finish()
         }
         binding.joinBtn.setOnClickListener{
-            join()
+            checkPw()
         }
     }
 
+    private fun checkPw() {
+        if (binding.joinEmailEt.text.toString().isEmpty()) {
+            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        //비밀번호 검사
+        if (binding.joinPwEt.text.toString().isEmpty()) {
+            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            return
+        }
+        val symbol = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{6,12}\$"
+        // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
+        val alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])"
+        if (!Pattern.matches(symbol, binding.joinPwEt.text.toString())) {
+            binding.joinErrorTv.visibility = View.VISIBLE
+            binding.joinCheckpwview.setBackgroundColor(Color.parseColor("#B80D00"))
+        }else {
+            //회원가입 진행
+            Toast.makeText(this, "비밀번호 유효성 확인", Toast.LENGTH_SHORT).show()
+            binding.joinErrorTv.visibility = View.INVISIBLE
+            binding.joinCheckpwview.setBackgroundColor(Color.parseColor("#B8C0CC"))
+            //join()
+        }
+
+    }
     private fun getUser(): User {
         val email: String = binding.joinEmailEt.text.toString()
         val name: String = binding.joinNameEt.text.toString()
-        val pwd: String = binding.joinPwEt.text.toString()
+        val password: String = binding.joinPwEt.text.toString()
         val checkpwd: String = binding.joinCheckpwEt.text.toString()
 
-        return User(name, email, pwd, checkpwd)
+        return User(name, email, password, checkpwd)
     }
 
     private fun join() {

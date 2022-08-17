@@ -1,12 +1,12 @@
 package com.example.there_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.there_android.databinding.FragmentMypageWorksBinding
 
 
@@ -29,18 +29,20 @@ class MyPageWorksFragment : Fragment(){
             add(MyPageData("there4", "그곳2", "소개글 입력하는 칸", 8, 8, "UMC_there"))
         }
         //리사이클러뷰 어댑터
-        val myWorkRVAdapter = MyWorkRVAdapter(myPageData)
-        binding.mypageWorksRecyclerview.adapter = myWorkRVAdapter
+        val myPageWorkRVAdapter = MyPageWorkRVAdapter(myPageData)
+        binding.mypageWorksRecyclerview.adapter = myPageWorkRVAdapter
         binding.mypageWorksRecyclerview.layoutManager = GridLayoutManager(context, 3)
         //외부 객체 리스너 전달
-        myWorkRVAdapter.setPortfolioClickListener(object : MyWorkRVAdapter.WorkClickListener{
+        myPageWorkRVAdapter.setPortfolioClickListener(object : MyPageWorkRVAdapter.WorkClickListener{
             override fun onItemClick(portfolio: MyPageData) {
-                (context as MainActivity).supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_frm , MyPortfolioFragment())
-                    .commitAllowingStateLoss()
+                toWorksFragment(portfolio)
             }
         })
 
         return binding.root
+    }
+    private fun toWorksFragment(portfolio: MyPageData) {
+        val intent = Intent(context,PostActivity::class.java)
+        startActivity(intent)
     }
 }

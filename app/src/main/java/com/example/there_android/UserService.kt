@@ -41,11 +41,11 @@ class UserService {
     fun login(user: User) {
         val loginService = getRetrofit().create(UserRetrofitInterface::class.java)
 
-
         loginService.login(user).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful && response.code() == 200) {
                     val loginResponse: UserResponse = response.body()!!
+                    Log.d("LOGIN-RESPONSE", loginResponse.toString())
                     //loginView.onLoginSuccess(loginResponse.code, loginResponse.result!!)
                     when (val code = loginResponse.code) {
                         0 -> loginView.onLoginSuccess(code, loginResponse.result!!)
