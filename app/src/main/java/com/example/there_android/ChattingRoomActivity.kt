@@ -5,6 +5,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.there_android.databinding.ActivityChattingroomBinding
+import com.gmail.bishoybasily.stomp.lib.Event
+import com.gmail.bishoybasily.stomp.lib.StompClient
+import io.reactivex.disposables.Disposable
+import okhttp3.OkHttpClient
 
 
 class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
@@ -30,7 +34,11 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
 
         loadData()
 
-        text = binding.chattingroomChatEt.text.toString()
+        binding.chattingroomSendCl.setOnClickListener {
+            text = binding.chattingroomChatEt.text.toString()
+            binding.chattingroomChatEt.setText("")
+        }
+
     }
 
     private fun loadData(){
@@ -57,33 +65,33 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
     }
 
 
-//    //메세지 보내기 STOMP 연결
-//    lateinit var stompConnection : Disposable
-//    lateinit var topic : Disposable
-//
-//    val url = "ws://3.39.57.176:8080/connect/websocket"
-//    val intervalMillis = 1000L
-//    val client = OkHttpClient()
-//    val stomp = StompClient(client, intervalMillis, url)
-//
-//    fun connect(){
-//        stompConnection = stomp.connect().subscribe{
-//            when(it.type){
-//                Event.Type.OPENED->{
-//
-//                }
-//                Event.Type.CLOSED->{
-//
-//                }
-//                Event.Type.ERROR->{
-//
-//                }
-//            }
-//        }
-//
-//        stomp.join("/topic/rm").subscribe {  }
-//
-//        stomp.send("/app/1004", text).subscribe { }
-//    }
+    //메세지 보내기 STOMP 연결
+    lateinit var stompConnection : Disposable
+    lateinit var topic : Disposable
+
+    val url = "wss://3.39.57.176:8080/connect/websocket"
+    val intervalMillis = 1000L
+    val client = OkHttpClient()
+    val stomp = StompClient(client, intervalMillis)
+
+    fun connect(){
+        stompConnection = stomp.connect().subscribe{
+            when(it.type){
+                Event.Type.OPENED->{
+
+                }
+                Event.Type.CLOSED->{
+
+                }
+                Event.Type.ERROR->{
+
+                }
+            }
+        }
+
+        stomp.join("/topic/rm").subscribe {  }
+
+        stomp.send("/app/1004", text).subscribe { }
+    }
 
 }
