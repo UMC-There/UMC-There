@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface GetHistoryListInterface {
-    @GET("/history/{postIdx}")
+    @GET("/historys/posts/{postIdx}")
     fun getHistory(
         @Path("postIdx") postIdx : Int
     ): Call<GetHistoryListResponse>

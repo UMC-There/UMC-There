@@ -23,8 +23,9 @@ class GetHistoryListService {
             ) {
                 val resp : GetHistoryListResponse = response.body()!!
                 Log.d("GETHISTORYLIST/SUCCESS", resp.message)
+                Log.d("CHECK", resp.result.toString())
                 when(resp.code){
-                    1000 -> getHistoryListView.onGetHistorySuccess(resp.result!!)
+                    1000 -> getHistoryListView.onGetHistorySuccess(resp.result)
                     else -> getHistoryListView.onGetHistoryFailure()
                 }
             }

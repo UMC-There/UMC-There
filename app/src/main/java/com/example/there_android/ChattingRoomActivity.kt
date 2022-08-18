@@ -5,6 +5,10 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.there_android.databinding.ActivityChattingroomBinding
+import com.gmail.bishoybasily.stomp.lib.Event
+import com.gmail.bishoybasily.stomp.lib.StompClient
+import io.reactivex.disposables.Disposable
+import okhttp3.OkHttpClient
 
 
 class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
@@ -30,7 +34,12 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
 
         loadData()
 
-        text = binding.chattingroomChatEt.text.toString()
+        binding.chattingroomSendCl.setOnClickListener {
+            text = binding.chattingroomChatEt.text.toString()
+            //connect(roomIdx)
+            binding.chattingroomChatEt.setText("")
+        }
+
     }
 
     private fun loadData(){
@@ -61,12 +70,12 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
 //    lateinit var stompConnection : Disposable
 //    lateinit var topic : Disposable
 //
-//    val url = "ws://3.39.57.176:8080/connect/websocket"
+//    val url = "wss://3.39.57.176:8080/connect/websocket"
 //    val intervalMillis = 1000L
 //    val client = OkHttpClient()
-//    val stomp = StompClient(client, intervalMillis, url)
+//    val stomp = StompClient(client, intervalMillis)
 //
-//    fun connect(){
+//    fun connect(roomIdx : Int){
 //        stompConnection = stomp.connect().subscribe{
 //            when(it.type){
 //                Event.Type.OPENED->{
@@ -81,9 +90,12 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
 //            }
 //        }
 //
-//        stomp.join("/topic/rm").subscribe {  }
+//        stomp.join("/topic/$roomIdx")
+//            .doOnError{ error -> }
+//            .subscribe { message -> }
 //
-//        stomp.send("/app/1004", text).subscribe { }
+//        stomp.send("/app/$roomIdx", text).subscribe {
+//            if (it){}
+//        }
 //    }
-
 }

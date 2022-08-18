@@ -29,10 +29,8 @@ class ChatRVAdapter(val context: Context, val chatList: List<ChatResponse.Result
                 Glide.with(binding.chatProfileIv.context).load(chatData.profileImgUrl).into(binding.chatProfileIv)
             }
             binding.chatNameTv.text = chatData.nickName
-            //binding.chatTextTv.text = chatData.text
-            binding.chatTextTv.text = "텍스트 내용"
-            binding.chatTimeTv.text = "오후 9 : 00"
-            //binding.chatTimeTv.text = chatData.time.toString()
+            binding.chatTextTv.text = chatData.lastContent
+            binding.chatTimeTv.text = chatData.created_At
             binding.chatCountTv.text = chatData.count.toString()
 
             itemView.setOnClickListener {
@@ -59,6 +57,5 @@ class ChatRVAdapter(val context: Context, val chatList: List<ChatResponse.Result
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
         holder.bind(chatList[position])
     }
-
 
 }
