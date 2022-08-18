@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ItemChatlistBinding
+import kotlin.collections.List
 
 class ChatRVAdapter(val context: Context, val chatList: List<ChatResponse.Result>) : RecyclerView.Adapter<ChatRVAdapter.ViewHolder>() {
 

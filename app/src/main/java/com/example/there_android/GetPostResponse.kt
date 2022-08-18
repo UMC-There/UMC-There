@@ -1,6 +1,7 @@
 package com.example.there_android
 
 import com.google.gson.annotations.SerializedName
+import kotlin.collections.List
 
 data class GetPostResponse(
     @SerializedName("code") val code : Int,

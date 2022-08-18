@@ -27,7 +27,6 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
 
         Log.d("CHECK/INTENT", "$receiverIdx, $roomIdx, $senderIdx")
         request = GetMessageRequest(receiverIdx, roomIdx, senderIdx)
-//        request = GetMessageRequest(2, 1, 1)
 
         loadData()
 
@@ -40,30 +39,22 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
         getMessageService.getMessage(request)
     }
 
-//    private fun setAdapter(messageList : GetMessageResponse.Result, request: GetMessageRequest){
-//        val mAdapter = ChattingRoomRVAdapter(this, messageList, request)
-//        binding.chattingroomChattingRv.adapter = mAdapter
-//        binding.chattingroomChattingRv.layoutManager = LinearLayoutManager(this)
-//        binding.chattingroomChattingRv.setHasFixedSize(true)
-//    }
+    private fun setAdapter(messageList : List<GetMessageResponse.Result>, request: GetMessageRequest){
+        val mAdapter = ChattingRoomRVAdapter(this, messageList, request)
+        binding.chattingroomChattingRv.adapter = mAdapter
+        binding.chattingroomChattingRv.layoutManager = LinearLayoutManager(this)
+        //binding.chattingroomChattingRv.setHasFixedSize(true)
+    }
 
-    override fun onGetMessageSuccess(result: GetMessageResponse.Result) {
+    override fun onGetMessageSuccess(result: List<GetMessageResponse.Result>) {
         Log.d("SUCCESS/SERVER", "서버 연결에 성공했습니다.")
-        Log.d("AdditionalProp", "${result.additionalProp1}, ${result.additionalProp2}")
-        //setAdapter(result, request)
+        val sorted = result.sortedBy { it.created_At }
+        setAdapter(sorted, request)
     }
 
     override fun onGetMessageFailure() {
         Log.d("FAILURE/SERVER", "서버 연결에 실패하였습니다.")
     }
-
-//    override fun StompClient(
-//        okHttpClient: OkHttpClient,
-//        reconnectAfter: Long,
-//        url: String
-//    ): StompClient {
-//
-//    }
 
 
 //    //메세지 보내기 STOMP 연결

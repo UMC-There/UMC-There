@@ -3,7 +3,7 @@ package com.example.there_android
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "http://3.39.57.176:8080"
+const val BASE_URL = "https://recordinthere.shop/"
 
 fun getRetrofit(): Retrofit {
 
