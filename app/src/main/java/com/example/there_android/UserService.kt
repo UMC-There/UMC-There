@@ -27,7 +27,7 @@ class UserService {
                     Log.d("JOIN-RESPONSE", joinResponse.toString())
                         //joinView.onJoinSuccess()
                     when (joinResponse.code) {
-                        0 -> joinView.onJoinSuccess()
+                        1000 -> joinView.onJoinSuccess()
                         else -> joinView.onJoinFailure()
                     }
                 }
@@ -48,7 +48,7 @@ class UserService {
                     Log.d("LOGIN-RESPONSE", loginResponse.toString())
                     //loginView.onLoginSuccess(loginResponse.code, loginResponse.result!!)
                     when (val code = loginResponse.code) {
-                        0 -> loginView.onLoginSuccess(code, loginResponse.result!!)
+                        1000 -> loginView.onLoginSuccess(code, loginResponse.result!!)
                         else -> loginView.onLoginFailure()
                     }
                 }

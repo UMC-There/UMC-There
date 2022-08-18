@@ -27,50 +27,55 @@ class JoinActivity : AppCompatActivity(), JoinView {
     }
 
     private fun checkPw() {
-        if (binding.joinEmailEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        //비밀번호 검사
-        if (binding.joinPwEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
+//        if (binding.joinEmailEt.text.toString().isEmpty()) {
+//            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+//            return
+//        }
+//        //비밀번호 검사
+//        if (binding.joinPwEt.text.toString().isEmpty()) {
+//            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
+//            return
+//        }
+        //비밀번호 유효성 검사
         val symbol = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{6,12}\$"
         // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
         val alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])"
         if (!Pattern.matches(symbol, binding.joinPwEt.text.toString())) {
+            binding.joinPwvalidTv.visibility = View.VISIBLE
+            binding.joinPwview.setBackgroundColor(Color.parseColor("#B80D00"))
+            return
+        }else if(binding.joinPwEt.text.toString() != binding.joinCheckpwEt.text.toString()){
             binding.joinErrorTv.visibility = View.VISIBLE
             binding.joinCheckpwview.setBackgroundColor(Color.parseColor("#B80D00"))
-        }else {
+            return
+        }else{
             //회원가입 진행
-            Toast.makeText(this, "비밀번호 유효성 확인", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "비밀번호 유효성 확인", Toast.LENGTH_SHORT).show()
+            binding.joinPwvalidTv.visibility = View.INVISIBLE
+            binding.joinPwview.setBackgroundColor(Color.parseColor("#B8C0CC"))
             binding.joinErrorTv.visibility = View.INVISIBLE
             binding.joinCheckpwview.setBackgroundColor(Color.parseColor("#B8C0CC"))
-            //join()
+            join()
+
         }
+//        if (binding.joinPwEt.text.toString() != binding.joinCheckpwEt.text.toString()) {
+//            binding.joinErrorTv.visibility = View.VISIBLE
+//            return
+//        } else{
+//            binding.joinErrorTv.visibility = View.INVISIBLE
+//        }
 
     }
     private fun getUser(): User {
         val email: String = binding.joinEmailEt.text.toString()
-        val name: String = binding.joinNameEt.text.toString()
+        val nickName: String = binding.joinNameEt.text.toString()
         val password: String = binding.joinPwEt.text.toString()
         val checkpwd: String = binding.joinCheckpwEt.text.toString()
 
-        return User(name, email, password, checkpwd)
+        return User(nickName, email, password, checkpwd)
     }
 
     private fun join() {
-        if (binding.joinEmailEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "이메일 형식이 잘못되었습니다.", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        if (binding.joinPwEt.text.toString() != binding.joinCheckpwEt.text.toString()) {
-            binding.joinErrorTv.visibility = View.VISIBLE
-            //Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show()
-            return
-        }
 
         val userService = UserService()
         userService.setJoinView(this)

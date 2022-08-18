@@ -1,6 +1,7 @@
 package com.example.there_android
 
 import android.app.Activity
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.os.PersistableBundle
@@ -10,6 +11,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.startActivity
 import com.example.there_android.databinding.ActivityLoginBinding
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
@@ -56,39 +58,15 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
         }
     }
-    private fun checkPw() {
-        if (binding.loginIdEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        //비밀번호 검사
-        if (binding.loginPwEt.text.toString().isEmpty()) {
-            Toast.makeText(this, "비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-            return
-        }
-        // 비밀번호 유효성 검사식1 : 숫자, 특수문자가 포함되어야 한다.
-        val symbol = "^(?=.*[a-zA-Z0-9])(?=.*[a-zA-Z!@#\$%^&*])(?=.*[0-9!@#\$%^&*]).{6,12}\$"
-        // 비밀번호 유효성 검사식2 : 영문자 대소문자가 적어도 하나씩은 포함되어야 한다.
-        val alpha = "([a-z].*[A-Z])|([A-Z].*[a-z])"
-        if (!Pattern.matches(symbol, binding.loginPwEt.text.toString())) {
-            binding.loginErrorTv.visibility = View.VISIBLE
-        }else {
-            // email과 password로 회원가입 진행
-            Toast.makeText(this, "비밀번호 유효성 확인", Toast.LENGTH_SHORT).show()
-            binding.loginErrorTv.visibility = View.INVISIBLE
-            //login()
-        }
-    }
 
     private fun getUser(): User {
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
 
-        return User(email = email, password = password, name = "", checkpwd = "")
+        return User(email = email, password = password, nickName = "", checkpwd = "")
     }
 
     private fun login() {
-        checkPw()
         val userService = UserService()
         userService.setLoginView(this)
         userService.login(getUser())
@@ -167,7 +145,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
 
     override fun onLoginSuccess(code : Int , result: Result) {
         when(code) {
-            0 -> {
+            1000 -> {
                 saveJwt(result.jwt)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

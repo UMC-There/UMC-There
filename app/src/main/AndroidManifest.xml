@@ -42,6 +42,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        //카카오로그인
         <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
@@ -52,7 +54,6 @@
                     android:host="oauth"
                     android:scheme="kakao4eef694b16fcc83f835bc72fe162a5f7" />
             </intent-filter>
-
         </activity>
 
     </application>
