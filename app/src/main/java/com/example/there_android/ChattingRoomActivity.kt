@@ -36,6 +36,7 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
 
         binding.chattingroomSendCl.setOnClickListener {
             text = binding.chattingroomChatEt.text.toString()
+            //connect(roomIdx)
             binding.chattingroomChatEt.setText("")
         }
 
@@ -65,33 +66,36 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
     }
 
 
-    //메세지 보내기 STOMP 연결
-    lateinit var stompConnection : Disposable
-    lateinit var topic : Disposable
-
-    val url = "wss://3.39.57.176:8080/connect/websocket"
-    val intervalMillis = 1000L
-    val client = OkHttpClient()
-    val stomp = StompClient(client, intervalMillis)
-
-    fun connect(){
-        stompConnection = stomp.connect().subscribe{
-            when(it.type){
-                Event.Type.OPENED->{
-
-                }
-                Event.Type.CLOSED->{
-
-                }
-                Event.Type.ERROR->{
-
-                }
-            }
-        }
-
-        stomp.join("/topic/rm").subscribe {  }
-
-        stomp.send("/app/1004", text).subscribe { }
-    }
-
+//    //메세지 보내기 STOMP 연결
+//    lateinit var stompConnection : Disposable
+//    lateinit var topic : Disposable
+//
+//    val url = "wss://3.39.57.176:8080/connect/websocket"
+//    val intervalMillis = 1000L
+//    val client = OkHttpClient()
+//    val stomp = StompClient(client, intervalMillis)
+//
+//    fun connect(roomIdx : Int){
+//        stompConnection = stomp.connect().subscribe{
+//            when(it.type){
+//                Event.Type.OPENED->{
+//
+//                }
+//                Event.Type.CLOSED->{
+//
+//                }
+//                Event.Type.ERROR->{
+//
+//                }
+//            }
+//        }
+//
+//        stomp.join("/topic/$roomIdx")
+//            .doOnError{ error -> }
+//            .subscribe { message -> }
+//
+//        stomp.send("/app/$roomIdx", text).subscribe {
+//            if (it){}
+//        }
+//    }
 }

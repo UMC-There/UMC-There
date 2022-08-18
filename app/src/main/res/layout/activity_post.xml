@@ -243,22 +243,24 @@
             android:background="#E7EAEE"
             app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"/>
 
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/post_history_fragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:name="com.example.there_android.HistoryFragment"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"/>-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/post_history_rv"
+        <FrameLayout
+            android:id="@+id/post_history_fl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-<!--        <FrameLayout-->
-<!--            android:id="@+id/post_history_fl"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"/>-->
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

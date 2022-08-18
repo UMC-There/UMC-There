@@ -1,21 +1,24 @@
 package com.example.there_android
 
+import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.ItemHistoryBinding
 
-class HistoryRVAdapter: RecyclerView.Adapter<HistoryRVAdapter.ViewHolder>()  {
-
-    var datalist = mutableListOf<HistoryData>()
+class HistoryRVAdapter(val context : Context, val result : List<GetHistoryListResponse.Result>): RecyclerView.Adapter<HistoryRVAdapter.ViewHolder>()  {
 
     //viewholder 데이터가 틀 안에 들어갈 수 있게 하는 기능
     inner class ViewHolder(private val binding: ItemHistoryBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(historyData: HistoryData){
-            binding.historyTitleTv.text = historyData.title
-            binding.historyDateTv.text = historyData.date
-            //recyclerview 이미지
-            binding.historyContentTv.text = historyData.content
+        val title = binding.historyTitleTv
+        val date = binding.historyDateTv
+        val day = binding.historyDayTv
+
+        fun bind(historyResult : GetHistoryListResponse.Result){
+            binding.historyTitleTv.text = historyResult.title
+            binding.historyDateTv.text = historyResult.createAt
+            binding.historyDayTv.text = historyResult.datOfWeek
         }
     }
 
@@ -24,9 +27,12 @@ class HistoryRVAdapter: RecyclerView.Adapter<HistoryRVAdapter.ViewHolder>()  {
         return ViewHolder(binding)
     }
 
-    override fun getItemCount() : Int = datalist.size
+    override fun getItemCount() : Int{
+        Log.d("CHECK", result.size.toString())
+        return result.size
+    }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int){
-        holder.bind(datalist[position])
+        holder.bind(result[position])
     }
 }
