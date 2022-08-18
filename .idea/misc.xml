@@ -3,49 +3,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/border_addhistory_addcontent.xml" value="0.1945" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/border_addhistory_addimage.xml" value="0.1935" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/border_chattingroom_chat.xml" value="0.221" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/border_my_chatting_text.xml" value="0.221" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/border_your_chatting_text.xml" value="0.221" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_etc_off.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_etc_on.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_home_off.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_home_on.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_chattingroom_add.xml" value="0.221" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_chattingroom_send_background.xml" value="0.221" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_post_share.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/ic_btn_etc_go.xml" value="0.1685" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/ic_btn_etc_more.xml" value="0.1315" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/img_addhistory_no_image_big.xml" value="0.19" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/img_chattingroom_profile.xml" value="0.221" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/img_history_image.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/img_item_home.xml" value="0.202" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_chatting.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_etc.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_home.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_mypage.xml" value="0.207" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/selector_icon_bnv_search.xml" value="0.207" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/shape_chat_count.xml" value="0.221" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/shape_circle.xml" value="0.1865" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/drawable/shape_etc_button.xml" value="0.1685" />
-
-        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_post.xml" value="0.3333333333333333" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_addhistory.xml" value="0.18565400843881857" />
-        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_chattingroom.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_chattingroom.xml" value="0.1" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_login.xml" value="0.35520833333333335" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_main.xml" value="0.4466666666666667" />
-        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_post.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_post.xml" value="0.3055555555555556" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_alarm.xml" value="0.2914529914529915" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_chat.xml" value="0.28162291169451076" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_chatting.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_etc.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_history.xml" value="0.28720626631853785" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_home.xml" value="0.265625" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_mypage.xml" value="0.2905982905982906" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/framgent_search.xml" value="0.3541666666666667" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_chatlist.xml" value="0.35520833333333335" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_history.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_history_image.xml" value="0.35052083333333334" />
@@ -55,19 +51,17 @@
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_home_myfollow.xml" value="0.265625" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_my_chatting.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_portfolio.xml" value="0.35520833333333335" />
+        <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_post_history.xml" value="0.1" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_work.xml" value="0.35520833333333335" />
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/layout/item_your_chatting.xml" value="0.4466666666666667" />
-
         <entry key="..\:/Users/jieun/AndroidStudioProjects/There_android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/drawable/border_addhistory_addcontent.xml" value="0.1725" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/drawable/btn_bnv_chatting_off.xml" value="0.2545" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/drawable/ic_back.xml" value="0.129" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/drawable/shape_chat_count.xml" value="0.2235" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activit_join.xml" value="0.25364583333333335" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_addhistory.xml" value="0.25" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_addpost.xml" value="0.25" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_join.xml" value="0.25" />
-        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_addpost.xml" value="0.1395582329317269" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_join.xml" value="0.22" />
+        <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_post.xml" value="0.1" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/activity_welcome.xml" value="0.24048913043478262" />
         <entry key="..\:/android-sdk/AndroidStudioProjects/There_android/app/src/main/res/layout/fragment_addpost.xml" value="0.33" />
