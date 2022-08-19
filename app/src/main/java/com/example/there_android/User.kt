@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "UserTable")
 data class User(
-    @SerializedName(value = "name")val name: String?,
+    @SerializedName(value = "nickName")val nickName: String?,
     @SerializedName(value = "email")val email: String,
     @SerializedName(value = "password")val password: String,
     @SerializedName(value = "checkpwd")val checkpwd: String?,
