@@ -18,7 +18,7 @@ class UserService {
 
     fun join(userAuth: UserAuth) {
 
-        val joinService = getRetrofit().create(UserRetrofitInterface::class.java)
+        val joinService = networkModule.getRetrofit().create(UserRetrofitInterface::class.java)
 
         joinService.join(userAuth).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
@@ -40,7 +40,7 @@ class UserService {
     }
 
     fun login(userAuth: UserAuth) {
-        val loginService = getRetrofit().create(UserRetrofitInterface::class.java)
+        val loginService = networkModule.getRetrofit().create(UserRetrofitInterface::class.java)
 
         loginService.login(userAuth).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {

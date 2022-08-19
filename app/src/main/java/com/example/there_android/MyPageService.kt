@@ -17,7 +17,7 @@ class MyPageService() {
     }
     //사용자 정보 GET
     fun getMyData(userIdx : Int) {
-        val myPageService = getRetrofit().create(MyPageRetrofitInterface::class.java)
+        val myPageService = networkModule.getRetrofit().create(MyPageRetrofitInterface::class.java)
 
         myPageService.getMyData(userIdx).enqueue(object : Callback<MyPageResponse> {
             override fun onResponse(call: Call<MyPageResponse>, response: Response<MyPageResponse>) {
@@ -41,7 +41,7 @@ class MyPageService() {
 
     //사용자 포스트 GET
     fun getUserPosts(userIdx : Int) {
-        val myPageService = getRetrofit().create(MyPageRetrofitInterface::class.java)
+        val myPageService = networkModule.getRetrofit().create(MyPageRetrofitInterface::class.java)
 
         myPageService.getUserPosts(userIdx).enqueue(object : Callback<MyPageResponse> {
             override fun onResponse(call: Call<MyPageResponse>, response: Response<MyPageResponse>) {

@@ -7,14 +7,17 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
+import com.example.there_android.GlobalApplication.Companion.spf
 import com.example.there_android.databinding.ActivityLoginBinding
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
+import com.kakao.sdk.common.util.SdkLogLevel
 import com.kakao.sdk.user.UserApiClient
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -73,11 +76,9 @@ class LoginActivity : AppCompatActivity(), LoginView {
     }
 //jwt, userIdx 토큰 저장
     private fun saveJwt(jwt: String, userIdx: Int) {
-        val spf = getSharedPreferences("user" , MODE_PRIVATE)
-        val editor = spf.edit()
-        editor.putString("jwt", jwt)
-        editor.putInt("userIdx", userIdx)
-        editor.apply()
+        GlobalApplication.spf.spfJwt= jwt
+        GlobalApplication.spf.spfIdx = userIdx
+        Log.d("login-jwt", "토큰 저장됨")
     }
 
 
