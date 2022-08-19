@@ -33,15 +33,15 @@ class MyPageWorksFragment : Fragment(){
         binding.mypageWorksRecyclerview.adapter = myPageWorkRVAdapter
         binding.mypageWorksRecyclerview.layoutManager = GridLayoutManager(context, 3)
         //외부 객체 리스너 전달
-        myPageWorkRVAdapter.setPortfolioClickListener(object : MyPageWorkRVAdapter.WorkClickListener{
-            override fun onItemClick(portfolio: MyPageData) {
-                toWorksFragment(portfolio)
+        myPageWorkRVAdapter.setWorkClickListener(object : MyPageWorkRVAdapter.WorkClickListener{
+            override fun onItemClick(work: MyPageData) {
+                toWorkFragment(work)
             }
         })
 
         return binding.root
     }
-    private fun toWorksFragment(portfolio: MyPageData) {
+    private fun toWorkFragment(work: MyPageData) {
         val intent = Intent(context,PostActivity::class.java)
         startActivity(intent)
     }

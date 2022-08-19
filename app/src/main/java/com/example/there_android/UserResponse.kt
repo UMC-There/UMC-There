@@ -7,7 +7,6 @@ data class UserResponse(
     @SerializedName("code") val code: Int,
     @SerializedName("message") val message: String,
     @SerializedName("result") val result: Result?
-
 )
 data class Result(
     @SerializedName("userIdx") val userIdx: Int,

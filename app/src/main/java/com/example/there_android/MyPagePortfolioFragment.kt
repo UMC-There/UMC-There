@@ -44,7 +44,7 @@ class MyPagePortfolioFragment : Fragment() {
 //        val intent = Intent(context,AddPostActivity::class.java)
 //        startActivity(intent)
         (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, MyPortfolioFragment())
+            .replace(R.id.main_frm, PortfolioFragment())
             .commitAllowingStateLoss()
     }
 
