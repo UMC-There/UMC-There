@@ -59,25 +59,27 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    private fun getUser(): User {
+    private fun getUserAuth(): UserAuth {
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
 
-        return User(email = email, password = password, nickName = "", checkpwd = "")
+        return UserAuth(email = email, password = password, nickName = "", checkpwd = "")
     }
 
     private fun login() {
         val userService = UserService()
         userService.setLoginView(this)
-        userService.login(getUser())
+        userService.login(getUserAuth())
     }
-//jwt 토큰 저장
-    private fun saveJwt(jwt: String) {
+//jwt, userIdx 토큰 저장
+    private fun saveJwt(jwt: String, userIdx: Int) {
         val spf = getSharedPreferences("user" , MODE_PRIVATE)
         val editor = spf.edit()
         editor.putString("jwt", jwt)
+        editor.putInt("userIdx", userIdx)
         editor.apply()
     }
+
 
 //카카오 로그인
     private fun kakaoLogin(){
@@ -146,7 +148,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun onLoginSuccess(code : Int , result: Result) {
         when(code) {
             1000 -> {
-                saveJwt(result.jwt)
+                saveJwt(result.jwt, result.userIdx)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
 
