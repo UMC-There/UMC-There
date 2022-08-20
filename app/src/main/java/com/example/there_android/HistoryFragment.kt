@@ -13,7 +13,7 @@ class HistoryFragment:Fragment() , GetHistoryListView{
 
     lateinit var binding: FragmentHistoryBinding
 
-    private var postIdx : Int = 1
+    private var postIdx : Int = arguments?.getInt("postIdx", 0)!!
 
     override fun onCreateView(
         inflater: LayoutInflater,

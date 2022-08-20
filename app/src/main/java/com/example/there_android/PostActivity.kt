@@ -16,17 +16,13 @@ class PostActivity :AppCompatActivity() , GetPostView{
 
     lateinit var getHistoryListRequest : GetHistoryListRequest
 
-    private val postIdx : Int = 1
+    private val postIdx : Int = intent.getIntExtra("postIdx", 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         binding = ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.post_history_fl, HistoryFragment())
-        transaction.commit()
 
         //addHistory 화면 전환
         binding.postAddHistoryIv.setOnClickListener {
@@ -44,10 +40,16 @@ class PostActivity :AppCompatActivity() , GetPostView{
 
     private fun openHistory(){
         //postIdx 값 넘겨주기
-//        var bundle = Bundle()
-//        bundle.putInt("postIdx", postIdx)
+        var bundle = Bundle()
+        val historyFragment = HistoryFragment()
+        bundle.putInt("postIdx", postIdx)
+        historyFragment.arguments = bundle
 
         binding.postHistoryOpenIv.setOnClickListener{
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.add(R.id.post_history_fl, HistoryFragment())
+            transaction.commit()
+
             binding.postHistoryOpenIv.visibility = View.INVISIBLE
             binding.postHistoryCloseIv.visibility = View.VISIBLE
             //binding.postHistoryFragment.visibility = View.VISIBLE
