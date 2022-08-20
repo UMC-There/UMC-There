@@ -16,16 +16,17 @@ class UserService {
         this.loginView = loginView
     }
 
-    fun join(user: User) {
+    fun join(userAuth: UserAuth) {
 
-        val joinService = getRetrofit().create(UserRetrofitInterface::class.java)
+        val joinService = networkModule.getRetrofit().create(UserRetrofitInterface::class.java)
 
-        joinService.join(user).enqueue(object : Callback<UserResponse> {
+        joinService.join(userAuth).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful && response.code() == 200) {
                     val joinResponse: UserResponse = response.body()!!
+
                     Log.d("JOIN-RESPONSE", joinResponse.toString())
-                        //joinView.onJoinSuccess()
+                    //joinView.onJoinSuccess()
                     when (joinResponse.code) {
                         1000 -> joinView.onJoinSuccess()
                         else -> joinView.onJoinFailure()
@@ -38,10 +39,10 @@ class UserService {
         })
     }
 
-    fun login(user: User) {
-        val loginService = getRetrofit().create(UserRetrofitInterface::class.java)
+    fun login(userAuth: UserAuth) {
+        val loginService = networkModule.getRetrofit().create(UserRetrofitInterface::class.java)
 
-        loginService.login(user).enqueue(object : Callback<UserResponse> {
+        loginService.login(userAuth).enqueue(object : Callback<UserResponse> {
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 if (response.isSuccessful && response.code() == 200) {
                     val loginResponse: UserResponse = response.body()!!

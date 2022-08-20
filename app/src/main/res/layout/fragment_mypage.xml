@@ -61,7 +61,7 @@
         app:layout_constraintStart_toEndOf="@+id/mypage_profileimg_iv"
         app:layout_constraintTop_toTopOf="@+id/mypage_v1">
         <TextView
-            android:id="@+id/mypage_name_tv"
+            android:id="@+id/mypage_nickname_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="17dp"
@@ -77,6 +77,7 @@
                 android:text="팔로워 "
                 android:textSize="16sp"/>
             <TextView
+                android:id="@+id/mypage_follower_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00"
@@ -88,6 +89,7 @@
                 android:text="팔로우 "
                 android:textSize="16sp"/>
             <TextView
+                android:id="@+id/mypage_followee_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00"

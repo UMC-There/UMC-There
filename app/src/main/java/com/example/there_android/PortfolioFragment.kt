@@ -5,22 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.there_android.databinding.FragmentMyportfolioBinding
+import com.example.there_android.databinding.FragmentPortfolioBinding
 import com.google.gson.Gson
 
-class MyPortfolioFragment : Fragment() {
-    private lateinit var binding: FragmentMyportfolioBinding
-    val gson = Gson()
+class PortfolioFragment : Fragment() {
+    private lateinit var binding: FragmentPortfolioBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyportfolioBinding.inflate(inflater, container, false)
-        val portfolioJson = arguments?.getString("portfolio")
-        val portfolio = gson.fromJson(portfolioJson, MyPageData::class.java)
-        setViews(portfolio)
+        binding = FragmentPortfolioBinding.inflate(inflater, container, false)
+        //val portfolioJson = arguments?.getString("portfolio")
+        //val portfolio = gson.fromJson(portfolioJson, MyPageData::class.java)
+        //setViews(portfolio)
 
         return binding.root
     }

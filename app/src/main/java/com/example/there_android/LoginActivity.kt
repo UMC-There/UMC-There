@@ -7,14 +7,17 @@ import android.os.Bundle
 import android.os.PersistableBundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
+import com.example.there_android.GlobalApplication.Companion.spf
 import com.example.there_android.databinding.ActivityLoginBinding
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause
+import com.kakao.sdk.common.util.SdkLogLevel
 import com.kakao.sdk.user.UserApiClient
 import java.util.regex.Matcher
 import java.util.regex.Pattern
@@ -59,25 +62,25 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    private fun getUser(): User {
+    private fun getUserAuth(): UserAuth {
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
 
-        return User(email = email, password = password, nickName = "", checkpwd = "")
+        return UserAuth(email = email, password = password, nickName = "", checkpwd = "")
     }
 
     private fun login() {
         val userService = UserService()
         userService.setLoginView(this)
-        userService.login(getUser())
+        userService.login(getUserAuth())
     }
-//jwt 토큰 저장
-    private fun saveJwt(jwt: String) {
-        val spf = getSharedPreferences("user" , MODE_PRIVATE)
-        val editor = spf.edit()
-        editor.putString("jwt", jwt)
-        editor.apply()
+//jwt, userIdx 토큰 저장
+    private fun saveJwt(jwt: String, userIdx: Int) {
+        GlobalApplication.spf.spfJwt= jwt
+        GlobalApplication.spf.spfIdx = userIdx
+        Log.d("login-jwt", "토큰 저장됨")
     }
+
 
 //카카오 로그인
     private fun kakaoLogin(){
@@ -146,7 +149,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
     override fun onLoginSuccess(code : Int , result: Result) {
         when(code) {
             1000 -> {
-                saveJwt(result.jwt)
+                saveJwt(result.jwt, result.userIdx)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
 

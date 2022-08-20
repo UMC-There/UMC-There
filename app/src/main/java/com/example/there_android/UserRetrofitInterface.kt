@@ -6,8 +6,8 @@ import retrofit2.http.POST
 
 interface UserRetrofitInterface {
     @POST("/users/join")
-    fun join(@Body user: User): Call<UserResponse>
+    fun join(@Body userAuth: UserAuth): Call<UserResponse>
 
     @POST("/users/login")
-    fun login(@Body user: User): Call<UserResponse>
+    fun login(@Body userAuth: UserAuth): Call<UserResponse>
 }

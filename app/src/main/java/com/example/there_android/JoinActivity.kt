@@ -3,6 +3,8 @@ package com.example.there_android
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -21,8 +23,25 @@ class JoinActivity : AppCompatActivity(), JoinView {
         binding.joinBackIv.setOnClickListener{
             finish()
         }
+        binding.joinPwvisibleIv.setOnClickListener{
+            visblePw()
+        }
         binding.joinBtn.setOnClickListener{
             checkPw()
+        }
+    }
+
+    //비밀번호 show/hide
+    private fun visblePw() {
+        if(binding.joinPwEt.getTransformationMethod().equals(PasswordTransformationMethod.getInstance())){
+            binding.joinPwvisibleIv.setImageResource(R.drawable.btn_login_show);
+            binding.joinPwEt.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            binding.joinCheckpwEt.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+        }
+        else{
+            binding.joinPwvisibleIv.setImageResource(R.drawable.btn_login_hide);
+            binding.joinPwEt.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            binding.joinCheckpwEt.setTransformationMethod(PasswordTransformationMethod.getInstance());
         }
     }
 
@@ -50,36 +69,27 @@ class JoinActivity : AppCompatActivity(), JoinView {
             return
         }else{
             //회원가입 진행
-            //Toast.makeText(this, "비밀번호 유효성 확인", Toast.LENGTH_SHORT).show()
             binding.joinPwvalidTv.visibility = View.INVISIBLE
             binding.joinPwview.setBackgroundColor(Color.parseColor("#B8C0CC"))
             binding.joinErrorTv.visibility = View.INVISIBLE
             binding.joinCheckpwview.setBackgroundColor(Color.parseColor("#B8C0CC"))
             join()
-
         }
-//        if (binding.joinPwEt.text.toString() != binding.joinCheckpwEt.text.toString()) {
-//            binding.joinErrorTv.visibility = View.VISIBLE
-//            return
-//        } else{
-//            binding.joinErrorTv.visibility = View.INVISIBLE
-//        }
-
     }
-    private fun getUser(): User {
+
+    private fun getUserAuth(): UserAuth {
         val email: String = binding.joinEmailEt.text.toString()
         val nickName: String = binding.joinNameEt.text.toString()
         val password: String = binding.joinPwEt.text.toString()
         val checkpwd: String = binding.joinCheckpwEt.text.toString()
 
-        return User(nickName, email, password, checkpwd)
+        return UserAuth(nickName, email, password, checkpwd)
     }
 
     private fun join() {
-
         val userService = UserService()
         userService.setJoinView(this)
-        userService.join(getUser())
+        userService.join(getUserAuth())
 
     }
 
