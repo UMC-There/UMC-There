@@ -9,7 +9,7 @@ class MySharedPreference (context: Context) {
     private val spf = context.getSharedPreferences("user", Context.MODE_PRIVATE)
 
     var spfJwt: String?
-        get() = spf.getString("jwt", "")
+        get() = spf.getString("jwt", "") //spf에 값이 없으면 null 반환
         set(value) = spf.edit().putString("jwt", value).apply()
     var spfIdx: Int?
         get() = spf.getInt("userIdx", 0)

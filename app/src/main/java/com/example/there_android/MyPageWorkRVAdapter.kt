@@ -31,7 +31,7 @@ class MyPageWorkRVAdapter(val context: Context, val result : MyPageResult) : Rec
         if(result.userPosts[position].imgUrl == "" || result.userPosts[position].imgUrl== null){
 
         } else {
-            Log.d("image", result.userPosts[position].imgUrl )
+            Log.d("image", result.userPosts[position].postIdx.toString() + " : " + result .userPosts[position].imgUrl )
             //Glide 라이브러리로 url을 이미지로 업로드
             Glide.with(context).load(result.userPosts[position].imgUrl).into(holder.workImg)
         }

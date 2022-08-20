@@ -28,7 +28,6 @@ class MyPageFragment : Fragment(), MyPageView {
         binding.mypageProfileimgIv.background = ShapeDrawable(OvalShape())
         binding.mypageProfileimgIv.clipToOutline = true
 
-
         //페이지 이동
         binding.mypageAddIv.setOnClickListener {
             val intent = Intent(context, AddPostActivity::class.java)
@@ -55,25 +54,25 @@ class MyPageFragment : Fragment(), MyPageView {
 //                Log.d("LOGGER_TAG", "freeListener")
 //            }
 //        }
-            return binding.root
+
+        return binding.root
     }
 
     override fun onStart() {
         super.onStart()
-        getJwt()
+        getData()
     }
 
-    private fun getJwt() {
-        val spf = activity?.getSharedPreferences("user" , AppCompatActivity.MODE_PRIVATE)
-        val jwt = spf!!.getString("jwt", "") //spf에 값이 없으면 null 반환
-        val userIdx = spf!!.getInt("userIdx", 0)
-        getData(userIdx)
-    }
+//    private fun getJwt() {
+//        val jwt = GlobalApplication.spf.spfJwt
+//        val userIdx = GlobalApplication.spf.spfIdx
+//        getData(userIdx)
+//    }
 
-    private fun getData(userIdx: Int) {
+    private fun getData() {
         val myPageService = MyPageService()
         myPageService.setMyPageView(this)
-        myPageService.getMyData(userIdx)
+        myPageService.getMyData(GlobalApplication.spf.spfIdx!!)
     }
     private fun initData(result: MyPageResult){
         binding.mypageNicknameTv.text = result.user.nickName
@@ -84,6 +83,7 @@ class MyPageFragment : Fragment(), MyPageView {
 
     override fun onMyPageSuccess(result: MyPageResult) {
         initData(result)
+        Log.d("MyData-SUCCESS", result.userPosts.toString())
     }
 
     override fun onMyPageFailure(code: Int, message: String) {

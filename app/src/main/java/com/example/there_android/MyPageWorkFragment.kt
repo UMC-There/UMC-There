@@ -13,7 +13,7 @@ import com.example.there_android.databinding.FragmentMypageWorkBinding
 
 
 
-class MyPageWorkFragment : Fragment(), MyPageWorkView{
+class MyPageWorkFragment : Fragment(), MyPageView{
     private lateinit var binding: FragmentMypageWorkBinding
     private var myPageData = ArrayList<MyPageData>()
 
@@ -31,16 +31,10 @@ class MyPageWorkFragment : Fragment(), MyPageWorkView{
         getUserPost()
     }
 
-    private fun getJwt() {
-        val jwt = GlobalApplication.spf.spfJwt//spf에 값이 없으면 null 반환
-        val userIdx = GlobalApplication.spf.spfIdx
-        Log.d("UserIdx", userIdx.toString() + jwt)
-        //getUserPost(userIdx!!)
-    }
     private fun getUserPost(){
         val myPageService = MyPageService()
-        myPageService.setMyPageWorkView(this)
-        myPageService.getUserPosts(GlobalApplication.spf.spfIdx!!)
+        myPageService.setMyPageView(this)
+        myPageService.getMyData(GlobalApplication.spf.spfIdx!!)
     }
 
     private fun initRecyclerView(result: MyPageResult){
@@ -61,11 +55,12 @@ class MyPageWorkFragment : Fragment(), MyPageWorkView{
         startActivity(intent)
     }
 
-    override fun onMyPageWorkSuccess(result: MyPageResult) {
+    override fun onMyPageSuccess(result: MyPageResult) {
         initRecyclerView(result)
+        Log.d("MyPost-SUCCESS", result.userPosts.toString())
     }
 
-    override fun onMyPageWorkFailure(code: Int, message: String) {
+    override fun onMyPageFailure(code: Int, message: String) {
         Log.d("MyPost-RESPONSE", code.toString() + message)
     }
 }
