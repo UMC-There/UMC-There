@@ -1,5 +1,10 @@
 package com.example.there_android
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
+
+@Entity(tableName = "MyPageTable")
 data class MyPageData(
     val accountId : String = "",
     val name : String = "",
@@ -9,3 +14,4 @@ data class MyPageData(
 
     var portfolioTitle : String = ""
 )
+
