@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.there_android.databinding.FragmentMypagePortfolioBinding
+import com.google.gson.Gson
 
 class MyPagePortfolioFragment : Fragment(), PortfolioView {
     private lateinit var binding: FragmentMypagePortfolioBinding
@@ -47,15 +48,22 @@ class MyPagePortfolioFragment : Fragment(), PortfolioView {
         //외부 객체 리스너 전달
         myPagePortfolioRVAdapter.setPortfolioClickListener(object :
             MyPagePortfolioRVAdapter.PortfolioClickListener {
-            override fun onItemClick(portfolioIdx: Int) {
-                toPortfolioFragment(portfolioIdx)
+            override fun onItemClick(portfolio: PortfolioResult) {
+                toPortfolioFragment(portfolio)
             }
         })
     }
 
-    private fun toPortfolioFragment(portfolioIdx: Int) {
+    private fun toPortfolioFragment(portfolio: PortfolioResult) {
         (context as MainActivity).supportFragmentManager.beginTransaction()
-            .replace(R.id.main_frm, PortfolioFragment())
+            .replace(R.id.main_frm, PortfolioFragment().apply {
+                arguments = Bundle().apply {
+                    val gson = Gson()
+                    val portfolioJson = gson.toJson(portfolio)
+                    Log.d("portfoliojson", portfolio.title.toString())
+                    putString("portfolio", portfolioJson)
+                }
+            })
             .commitAllowingStateLoss()
 //        val intent = Intent(context, PostActivity::class.java)
 //        ContextCompat.startActivity(intent)

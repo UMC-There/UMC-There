@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.ItemPortfolioBinding
 class MyPagePortfolioRVAdapter(val context: Context, val result :List<PortfolioResult>) : RecyclerView.Adapter<MyPagePortfolioRVAdapter.ViewHolder>(){
     interface PortfolioClickListener{
-        fun onItemClick(portfolioIdx: Int) // 포트폴리오를 클릭했을 때
+        fun onItemClick(portfolio: PortfolioResult) // 포트폴리오를 클릭했을 때
     }
     private lateinit var portfolioClickListener : PortfolioClickListener
     fun setPortfolioClickListener(itemClickListener: PortfolioClickListener){
@@ -24,7 +24,7 @@ class MyPagePortfolioRVAdapter(val context: Context, val result :List<PortfolioR
     override fun onBindViewHolder(holder: MyPagePortfolioRVAdapter.ViewHolder, position: Int) {
         holder.bind(result[position])
 
-        holder.binding.itemportfolio.setOnClickListener{ portfolioClickListener.onItemClick((result[position].portfolioIdx))}
+        holder.binding.itemportfolio.setOnClickListener{ portfolioClickListener.onItemClick((result[position]))}
     }
 
     override fun getItemCount(): Int = result.size

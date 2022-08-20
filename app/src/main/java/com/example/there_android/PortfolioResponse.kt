@@ -15,15 +15,15 @@ data class PortfolioResult(
     @SerializedName(value = "title") val title: String?,
 )
 
-////포트폴리오 내 포스트 조회
-//data class PfolPostsResponse(
-//    @SerializedName("isSuccess") val isSuccess: Boolean,
-//    @SerializedName("code") val code: Int,
-//    @SerializedName("message") val message: String,
-//    @SerializedName("result") val result: List<PfolPostsResult>,
-//)
-//data class PfolPostsResult(
-//    @SerializedName(value = "contentIdx") val contentIdx: Int,
-//    @SerializedName(value = "postIdx") val postIdx: Int,
-//    @SerializedName(value = "imgUrl") val imgUrl: String?,
-//)
+//포트폴리오 내 포스트 조회
+data class PfolPostsResponse(
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("result") val result: List<PfolPostsResult>,
+)
+data class PfolPostsResult(
+    @SerializedName(value = "contentIdx") val contentIdx: Int,
+    @SerializedName(value = "postIdx") val postIdx: Int,
+    @SerializedName(value = "imgUrl") val imgUrl: String?,
+)
