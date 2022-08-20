@@ -24,6 +24,10 @@ class PostActivity :AppCompatActivity() , GetPostView{
         binding = ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bfa49e5282b2603ae99ac12e72b038b612a6a35b
         //addHistory 화면 전환
         binding.postAddHistoryIv.setOnClickListener {
             val intent = Intent(this, AddHistoryActivity::class.java)
@@ -39,6 +43,7 @@ class PostActivity :AppCompatActivity() , GetPostView{
     }
 
     private fun openHistory(){
+
         //postIdx 값 넘겨주기
         var bundle = Bundle()
         val historyFragment = HistoryFragment()
@@ -58,6 +63,10 @@ class PostActivity :AppCompatActivity() , GetPostView{
         }
 
         binding.postHistoryCloseIv.setOnClickListener{
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.remove(HistoryFragment())
+            transaction.commit()
+
             binding.postHistoryOpenIv.visibility = View.VISIBLE
             binding.postHistoryCloseIv.visibility = View.INVISIBLE
             //binding.postHistoryFragment.visibility = View.INVISIBLE
