@@ -39,6 +39,9 @@ android {
 }
 
 dependencies {
+    //imagepicker
+    implementation 'com.github.esafirm:android-image-picker:3.0.0-beta1'
+
     //stickyScrollView
     implementation 'com.github.amarjain07:StickyScrollView:1.0.3'
 

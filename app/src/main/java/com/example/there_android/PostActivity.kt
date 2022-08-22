@@ -16,7 +16,7 @@ class PostActivity :AppCompatActivity() , GetPostView{
 
     lateinit var getHistoryListRequest : GetHistoryListRequest
 
-    private val postIdx : Int = intent.getIntExtra("postIdx", 0)
+    private val postIdx =  intent.getIntExtra("postIdx", 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +24,6 @@ class PostActivity :AppCompatActivity() , GetPostView{
         binding = ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> bfa49e5282b2603ae99ac12e72b038b612a6a35b
         //addHistory 화면 전환
         binding.postAddHistoryIv.setOnClickListener {
             val intent = Intent(this, AddHistoryActivity::class.java)
@@ -37,6 +33,7 @@ class PostActivity :AppCompatActivity() , GetPostView{
         binding.postBackIv.setOnClickListener{
             finish()
         }
+        Log.d("TEST/POST", postIdx.toString())
         getContent()
         loadData()
         openHistory()
