@@ -16,7 +16,7 @@ class PostActivity :AppCompatActivity() , GetPostView{
 
     lateinit var getHistoryListRequest : GetHistoryListRequest
 
-    private val postIdx =  intent.getIntExtra("postIdx", 0)
+    //private val postIdx : Int = intent.getIntExtra("postIdx", 1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,46 +33,42 @@ class PostActivity :AppCompatActivity() , GetPostView{
         binding.postBackIv.setOnClickListener{
             finish()
         }
-        Log.d("TEST/POST", postIdx.toString())
-        getContent()
+        val postIdx : Int = intent.getIntExtra("postIdx", 0)
+        Log.d("intent", postIdx.toString())
+        getContent(postIdx)
         loadData()
-        openHistory()
+        //openHistory(postIdx)
     }
 
-    private fun openHistory(){
+//    private fun openHistory(postIdx: Int){
+//        //postIdx 값 넘겨주기
+//        var bundle = Bundle()
+//        val historyFragment = HistoryFragment()
+//        bundle.putInt("postIdx", postIdx)
+//        historyFragment.arguments = bundle
+//
+//        binding.postHistoryOpenIv.setOnClickListener{
+//            val transaction = supportFragmentManager.beginTransaction()
+//            transaction.add(R.id.post_history_fl, HistoryFragment())
+//            transaction.commit()
+//
+//            binding.postHistoryOpenIv.visibility = View.INVISIBLE
+//            binding.postHistoryCloseIv.visibility = View.VISIBLE
+//            //binding.postHistoryFragment.visibility = View.VISIBLE
+//            binding.postHistoryFl.visibility = View.VISIBLE
+//            binding.postAddHistoryIv.visibility = View.VISIBLE
+//        }
+//
+//        binding.postHistoryCloseIv.setOnClickListener{
+//            binding.postHistoryOpenIv.visibility = View.VISIBLE
+//            binding.postHistoryCloseIv.visibility = View.INVISIBLE
+//            //binding.postHistoryFragment.visibility = View.INVISIBLE
+//            binding.postHistoryFl.visibility = View.INVISIBLE
+//            binding.postAddHistoryIv.visibility = View.INVISIBLE
+//        }
+//    }
 
-        //postIdx 값 넘겨주기
-        var bundle = Bundle()
-        val historyFragment = HistoryFragment()
-        bundle.putInt("postIdx", postIdx)
-        historyFragment.arguments = bundle
-
-        binding.postHistoryOpenIv.setOnClickListener{
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.post_history_fl, HistoryFragment())
-            transaction.commit()
-
-            binding.postHistoryOpenIv.visibility = View.INVISIBLE
-            binding.postHistoryCloseIv.visibility = View.VISIBLE
-            //binding.postHistoryFragment.visibility = View.VISIBLE
-            binding.postHistoryFl.visibility = View.VISIBLE
-            binding.postAddHistoryIv.visibility = View.VISIBLE
-        }
-
-        binding.postHistoryCloseIv.setOnClickListener{
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.remove(HistoryFragment())
-            transaction.commit()
-
-            binding.postHistoryOpenIv.visibility = View.VISIBLE
-            binding.postHistoryCloseIv.visibility = View.INVISIBLE
-            //binding.postHistoryFragment.visibility = View.INVISIBLE
-            binding.postHistoryFl.visibility = View.INVISIBLE
-            binding.postAddHistoryIv.visibility = View.INVISIBLE
-        }
-    }
-
-    private fun getContent(){
+    private fun getContent(postIdx: Int){
         getHistoryListRequest = GetHistoryListRequest(postIdx)
         getPostRequest = GetPostRequest(postIdx)
     }
