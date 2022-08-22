@@ -1,9 +1,11 @@
 package com.example.there_android
 
+import android.app.ProgressDialog.show
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.there_android.databinding.ActivityMainBinding
 import com.example.there_android.databinding.FragmentMypageBinding
 import com.kakao.sdk.common.util.Utility
@@ -13,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var binding2: FragmentMypageBinding
 
+    private var backKeyPressTime : Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +24,19 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         initBottomNavigation()
     }
-    private fun toAddPost() {
-        val intent = Intent(this, AddPostActivity::class.java)
-        startActivity(intent)
+
+    override fun onBackPressed() {
+        //super.onBackPressed()
+        val toast = Toast.makeText(this, "뒤로 가기를 한 번 더 누르면 종료됩니다", Toast.LENGTH_SHORT)
+        if (System.currentTimeMillis() > backKeyPressTime + 2500) {
+            backKeyPressTime = System.currentTimeMillis()
+            toast.show()
+            return
+        }
+        if (System.currentTimeMillis() <= backKeyPressTime + 2500) {
+            toast.cancel()
+            finishAffinity()
+        }
     }
 
     private fun initBottomNavigation(){

@@ -10,8 +10,8 @@ interface PortfolioRetrofitInterface {
         @Path("userIdx") userIdx : Int
     ): Call<PortfolioResponse>
 
-//    @GET("/portfolio/{portfolioIdx}")
-//    fun getPfolPosts(
-//        @Path("portfolioIdx") portfolioIdx : Int
-//    ): Call<PfolPostsResponse>
+    @GET("/portfolio/pf/{portfolioIdx}")
+    fun getPfolPosts(
+        @Path("portfolioIdx") portfolioIdx : Int
+    ): Call<PfolPostsResponse>
 }

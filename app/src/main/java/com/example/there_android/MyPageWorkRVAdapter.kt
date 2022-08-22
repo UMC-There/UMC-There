@@ -50,4 +50,5 @@ class MyPageWorkRVAdapter(val context: Context, val result : MyPageResult) : Rec
         RecyclerView.ViewHolder(binding.root) {
         val workImg : ImageView = binding.itemworksIv
     }
+
 }

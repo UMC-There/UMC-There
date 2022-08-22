@@ -2,16 +2,19 @@ package com.example.there_android
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.there_android.databinding.FragmentPortfolioBinding
+import com.google.gson.Gson
 
-class PortfolioFragment : Fragment() {
+class PortfolioFragment : Fragment(), PfolPostView {
     private lateinit var binding: FragmentPortfolioBinding
     private var myPageData = ArrayList<MyPageData>()
+    val gson = Gson()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -19,39 +22,49 @@ class PortfolioFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPortfolioBinding.inflate(inflater, container, false)
-        //val portfolioJson = arguments?.getString("portfolio")
-        //val portfolio = gson.fromJson(portfolioJson, MyPageData::class.java)
-        //setViews(portfolio)
-
-        //데이터 리스트
-//        myPageData.apply {
-//            add(MyPageData("there", "그곳", "소개글 입력하는 칸", 8, 8, "3"))
-//            add(MyPageData("there2", "그곳2", "소개글 입력하는 칸", 9, 8, "4"))
-//            add(MyPageData("there3", "그곳", "소개글 입력하는 칸", 10, 8, "UMC_there"))
-//            add(MyPageData("there4", "그곳2", "소개글 입력하는 칸", 11, 8, "UMC_there"))
-//        }
 
         return binding.root
     }
+    override fun onStart() {
+        super.onStart()
+        val portfolioJson = arguments?.getString("portfolio")
+        val portfolio = gson.fromJson(portfolioJson, PortfolioResult::class.java)
+        Log.d("portfoliojson", portfolio.title.toString())
+        binding.portfolioTitelTv.text = portfolio.title
+        binding.portfolioWorksTv.text = portfolio.post_count.toString()
+        getPfolPost(portfolio.portfolioIdx)
+    }
+    private fun getPfolPost(portfolioIdx: Int) {
+        val portfolioService = PortfolioService()
+        portfolioService.setPfolPostView(this)
+        portfolioService.getPfolPost(portfolioIdx)
+    }
 
-    private fun initRecyclerView(result: MyPageResult){
+    private fun initRecyclerView(result: List<PfolPostsResult>){
         //리사이클러뷰 어댑터
-        val myPageWorkRVAdapter = MyPageWorkRVAdapter(requireContext(), result)
-        binding.portfolioRecyclerview.adapter = myPageWorkRVAdapter
+        val portfolioWorkRVAdapter = PortfolioWorkRVAdapter(requireContext(), result)
+        binding.portfolioRecyclerview.adapter = portfolioWorkRVAdapter
         binding.portfolioRecyclerview.layoutManager = GridLayoutManager(context, 3)
         //외부 객체 리스너 전달
-        myPageWorkRVAdapter.setWorkClickListener(object : MyPageWorkRVAdapter.WorkClickListener{
-            override fun onItemClick(postIdx : Int) {
+        portfolioWorkRVAdapter.setWorkClickListener(object : PortfolioWorkRVAdapter.WorkClickListener{
+            override fun onItemClick(postIdx: Int) {
                 toWorkFragment(postIdx)
             }
         })
     }
-    private fun toWorkFragment(postIdx : Int) {
+    private fun toWorkFragment(postIdx: Int) {
         val intent = Intent(context,PostActivity::class.java)
+        intent.putExtra("postIdx", postIdx)
         startActivity(intent)
     }
-    //뷰 바인딩
-    private fun setViews(portfolio: MyPageData) {
-        //binding.myportfolioTitelTv.text = portfolio.portfolioTitle.toString()
+
+    override fun onPfolPostSuccess(result: List<PfolPostsResult>) {
+        initRecyclerView(result)
+        Log.d("MyPfolPost-SUCCESS", result.toString())
     }
+
+    override fun onPfolPostFailure(code: Int, message: String) {
+        Log.d("MyPfolPost-RESPONSE", code.toString() + message)
+    }
+
 }
