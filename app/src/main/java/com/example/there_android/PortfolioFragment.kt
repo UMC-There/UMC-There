@@ -23,15 +23,6 @@ class PortfolioFragment : Fragment(), PfolPostView {
     ): View? {
         binding = FragmentPortfolioBinding.inflate(inflater, container, false)
 
-
-        //데이터 리스트
-//        myPageData.apply {
-//            add(MyPageData("there", "그곳", "소개글 입력하는 칸", 8, 8, "3"))
-//            add(MyPageData("there2", "그곳2", "소개글 입력하는 칸", 9, 8, "4"))
-//            add(MyPageData("there3", "그곳", "소개글 입력하는 칸", 10, 8, "UMC_there"))
-//            add(MyPageData("there4", "그곳2", "소개글 입력하는 칸", 11, 8, "UMC_there"))
-//        }
-
         return binding.root
     }
     override fun onStart() {
@@ -49,13 +40,13 @@ class PortfolioFragment : Fragment(), PfolPostView {
         portfolioService.getPfolPost(portfolioIdx)
     }
 
-    private fun initRecyclerView(result: MyPageResult){
+    private fun initRecyclerView(result: List<PfolPostsResult>){
         //리사이클러뷰 어댑터
-        val myPageWorkRVAdapter = MyPageWorkRVAdapter(requireContext(), result)
-        binding.portfolioRecyclerview.adapter = myPageWorkRVAdapter
+        val portfolioWorkRVAdapter = PortfolioWorkRVAdapter(requireContext(), result)
+        binding.portfolioRecyclerview.adapter = portfolioWorkRVAdapter
         binding.portfolioRecyclerview.layoutManager = GridLayoutManager(context, 3)
         //외부 객체 리스너 전달
-        myPageWorkRVAdapter.setWorkClickListener(object : MyPageWorkRVAdapter.WorkClickListener{
+        portfolioWorkRVAdapter.setWorkClickListener(object : PortfolioWorkRVAdapter.WorkClickListener{
             override fun onItemClick(postIdx: Int) {
                 toWorkFragment(postIdx)
             }
@@ -68,7 +59,7 @@ class PortfolioFragment : Fragment(), PfolPostView {
     }
 
     override fun onPfolPostSuccess(result: List<PfolPostsResult>) {
-        //initRecyclerView(result)
+        initRecyclerView(result)
         Log.d("MyPfolPost-SUCCESS", result.toString())
     }
 
