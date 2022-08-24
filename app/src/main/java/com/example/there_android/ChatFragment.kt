@@ -14,7 +14,7 @@ class ChatFragment : Fragment(), ChatView {
 
     lateinit var  binding: FragmentChatBinding
 
-//    var chatList = arrayListOf<ChatData>()
+    private val userIdx : Int = GlobalApplication.spf.spfIdx!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,8 +39,6 @@ class ChatFragment : Fragment(), ChatView {
     }
 
     private fun getContent(): ChatRequest{
-        //임의의 값
-        val userIdx : Int = 1
         return ChatRequest(userIdx)
     }
 
