@@ -5,7 +5,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PortfolioRetrofitInterface {
-    @GET("/portfolio/user/{userIdx}")
+    @GET("/portfolios/user/{userIdx}")
     fun getUserPfols(
         @Path("userIdx") userIdx : Int
     ): Call<PortfolioResponse>

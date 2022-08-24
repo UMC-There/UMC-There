@@ -1,6 +1,7 @@
 package com.example.there_android
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,27 +14,35 @@ class HistoryFragment:Fragment() , GetHistoryListView{
 
     lateinit var binding: FragmentHistoryBinding
 
-    private var postIdx : Int = arguments?.getInt("postIdx", 0)!!
+    private var content = GetHistoryListRequest(0)
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loadData()
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
+        val postIdx = 1 //arguments?.getInt("postIdx", 0)!!
+        if(postIdx == null){
+            Log.d("CHECK", "null값 들어감")
+        }
+
+        content = getContent(postIdx)
+
+        loadData()
         return binding.root
     }
 
-    private fun getContent() : GetHistoryListRequest{
+    private fun getContent(postIdx : Int) : GetHistoryListRequest{
         return GetHistoryListRequest(postIdx)
     }
 
     private fun loadData(){
         val getHistoryListService = GetHistoryListService()
         getHistoryListService.setGetHistoryView(this)
-        getHistoryListService.getHistory(getContent())
+        getHistoryListService.getHistory(content)
     }
     private fun setAdapter(result : List<GetHistoryListResponse.Result>){
         val getHistoryAdapter = HistoryRVAdapter(this.requireContext(), result)

@@ -14,7 +14,7 @@ class ChatFragment : Fragment(), ChatView {
 
     lateinit var  binding: FragmentChatBinding
 
-    private val userIdx : Int = 58
+    private val userIdx : Int = GlobalApplication.spf.spfIdx!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
