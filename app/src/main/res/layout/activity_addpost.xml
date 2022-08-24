@@ -50,7 +50,8 @@
                 android:id="@+id/addpost_image_iv"
                 android:layout_width="match_parent"
                 android:layout_height="343dp"
-                android:background="#656565"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_mypage"
                 app:layout_constraintTop_toTopOf="parent"/>
             <TextView
                 android:layout_width="wrap_content"

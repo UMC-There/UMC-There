@@ -11,7 +11,7 @@ class AddPostService {
         this.addPostView = addPostView
     }
     
-    fun addPost(addPost: AddPost, userIdx: Int){
+    fun addPost(userIdx: Int, addPost: AddPost){
         val addPostService = networkModule.getRetrofit().create(AddPostRetrofitInterface::class.java)
 
         addPostService.postPost(userIdx, addPost).enqueue(object : Callback<AddPostResponse> {

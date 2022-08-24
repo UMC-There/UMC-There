@@ -40,19 +40,20 @@ class AddPostActivity : AppCompatActivity(), AddPostView {
     private fun getPost(): AddPost {
         val content: String = binding.addpostPostintroEt.text.toString()
         val hashtag: String = binding.addpostPosttagEt.text.toString()
+        val postImg: String = binding.addpostImageIv.resources.toString()
 
-        return AddPost("", PostContent(content,hashtag))
+        return AddPost(postImg, PostContent(content,hashtag))
     }
 
     private fun addPosting(){
         val addPostService = AddPostService()
         addPostService.setAddPostView(this)
         Log.d("AddPost", getPost().toString())
-        addPostService.addPost(getPost(), GlobalApplication.spf.spfIdx!!)
+        addPostService.addPost(GlobalApplication.spf.spfIdx!!, getPost())
     }
 
     override fun onAddPostSuccess() {
-
+        finish()
     }
 
     override fun onAddPostFailure(code: Int, message: String) {
