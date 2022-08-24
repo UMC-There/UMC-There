@@ -20,7 +20,7 @@ class ChatService {
                 val resp: ChatResponse = response.body()!!
                 Log.d("GETCHAT/SUCCESS", resp.message)
                 when(resp.code){
-                    200, 1000 -> chatView.onChatSuccess(resp.result)
+                    200, 1000 -> chatView.onChatSuccess(resp.result!!)
                     else -> chatView.onChatFailure(resp.code)
                 }
             }

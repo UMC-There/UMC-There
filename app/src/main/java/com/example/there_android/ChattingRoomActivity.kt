@@ -40,6 +40,9 @@ class ChattingRoomActivity:AppCompatActivity(), GetMessageView{
             binding.chattingroomChatEt.setText("")
         }
 
+        binding.chattingroomBackIv.setOnClickListener {
+            finish()
+        }
     }
 
     private fun loadData(){

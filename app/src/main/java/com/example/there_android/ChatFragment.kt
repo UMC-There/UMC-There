@@ -23,9 +23,8 @@ class ChatFragment : Fragment(), ChatView {
     ): View? {
         loadData()
 
+        Log.d("CHECK", userIdx.toString())
         binding = FragmentChatBinding.inflate(inflater, container, false)
-
-
         return binding.root
     }
 

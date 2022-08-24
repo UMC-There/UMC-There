@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.FragmentHistoryBinding
 
-class HistoryFragment:Fragment() , GetHistoryListView{
+class HistoryFragment:Fragment() , GetHistoryListView, HistoryContentView{
 
     lateinit var binding: FragmentHistoryBinding
 
@@ -31,7 +31,12 @@ class HistoryFragment:Fragment() , GetHistoryListView{
 
         content = getContent(postIdx)
 
+        //history header 불러오기
         loadData()
+
+        //history content 불러오기
+
+
         return binding.root
     }
 
@@ -59,4 +64,11 @@ class HistoryFragment:Fragment() , GetHistoryListView{
 
     }
 
+    override fun onHistoryContentSuccess(result: HistoryContentResponse.Result) {
+
+    }
+
+    override fun onHistoryContentFailure() {
+
+    }
 }
