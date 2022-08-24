@@ -12,7 +12,7 @@ data class GetHistoryListResponse(
     data class Result(
         @SerializedName("historyIdx") val historyIdx : Int,
         @SerializedName("title") val title : String,
-        @SerializedName("createAt") val createAt : String,
+        @SerializedName("createdAt") val createdAt : String,
         @SerializedName("dayOfWeek") val datOfWeek : String
 
     )

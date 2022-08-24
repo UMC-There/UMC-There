@@ -10,12 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.FragmentHistoryBinding
 
-class HistoryFragment:Fragment() , GetHistoryListView, HistoryContentView{
+class HistoryFragment:Fragment() , GetHistoryListView{
 
     lateinit var binding: FragmentHistoryBinding
 
     private var content = GetHistoryListRequest(0)
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,9 +32,6 @@ class HistoryFragment:Fragment() , GetHistoryListView, HistoryContentView{
 
         //history header 불러오기
         loadData()
-
-        //history content 불러오기
-
 
         return binding.root
     }
@@ -56,19 +52,12 @@ class HistoryFragment:Fragment() , GetHistoryListView, HistoryContentView{
         binding.historyListRv.setHasFixedSize(true)
     }
 
+
     override fun onGetHistorySuccess(result: List<GetHistoryListResponse.Result>) {
         setAdapter(result)
     }
 
     override fun onGetHistoryFailure() {
-
-    }
-
-    override fun onHistoryContentSuccess(result: HistoryContentResponse.Result) {
-
-    }
-
-    override fun onHistoryContentFailure() {
 
     }
 }

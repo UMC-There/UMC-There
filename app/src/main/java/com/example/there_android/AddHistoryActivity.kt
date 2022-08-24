@@ -52,21 +52,12 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
         }
 
-//        //사진 첨부
-//        binding.addhistoryAddimgCl.setOnClickListener {
-//            binding.addhistoryBigImageRv.visibility = View.VISIBLE
-//            binding.addhistorySmallImageRv.visibility = View.VISIBLE
-//
-//            selectGallery()
-//            binding.addhistoryBigImageRv.adapter = adapter
-//            binding.addhistorySmallImageRv.adapter = adapter
-//
-//            binding.addhistoryBigImageRv.layoutManager = LinearLayoutManager(this)
-//            binding.addhistorySmallImageRv.layoutManager = LinearLayoutManager(this)
-//
-//            binding.addhistoryBigImageRv.setHasFixedSize(true)
-//            binding.addhistoryAddimgCl.visibility = View.INVISIBLE
-//        }
+        //사진 첨부
+        binding.addhistoryAddimgCl.setOnClickListener {
+            setAdapter()
+            binding.addhistoryBigImageRv.visibility = View.VISIBLE
+            binding.addhistoryAddimgCl.visibility = View.INVISIBLE
+        }
 
         //제목 텍스트 작성 시 체크 표시
         val editText = binding.addhistoryAddtitleEt
