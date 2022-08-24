@@ -23,6 +23,11 @@ class PortfolioFragment : Fragment(), PfolPostView {
     ): View? {
         binding = FragmentPortfolioBinding.inflate(inflater, container, false)
 
+        binding.portfolioBackIv.setOnClickListener{
+            (context as MainActivity).supportFragmentManager.beginTransaction()
+                .replace(R.id.main_frm , MyPageFragment()).commitAllowingStateLoss()
+        }
+
         return binding.root
     }
     override fun onStart() {
