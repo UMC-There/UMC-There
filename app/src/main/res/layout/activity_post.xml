@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.amar.library.ui.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:stickyHeader="@id/post_history_header_cl">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -181,6 +182,7 @@
             android:background="#E7EAEE"
             app:layout_constraintTop_toBottomOf="@id/post_context_cl"/>
 
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/post_history_header_cl"
             android:layout_width="match_parent"
@@ -235,13 +237,15 @@
                 android:layout_marginEnd="58dp"
                 android:visibility="invisible"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E7EAEE"
+                app:layout_constraintBottom_toBottomOf="@id/post_history_header_cl"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#E7EAEE"
-            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"/>
+
 
 <!--        <androidx.fragment.app.FragmentContainerView-->
 <!--            android:id="@+id/post_history_fragment"-->
@@ -263,4 +267,4 @@
             app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</com.amar.library.ui.StickyScrollView>

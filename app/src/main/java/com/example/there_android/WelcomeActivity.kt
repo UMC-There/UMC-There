@@ -19,6 +19,11 @@ class WelcomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.welcomeTestPostTv.setOnClickListener{
+            val intent = Intent(this,PostActivity::class.java)
+            startActivity(intent)
+        }
+
         //로그인
         binding.welcomeLoginBtn.setOnClickListener{
             val intent = Intent(this,LoginActivity::class.java)
