@@ -1,11 +1,13 @@
 package com.example.there_android
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ItemPortfolioBinding
 class MyPagePortfolioRVAdapter(val context: Context, val result :List<PortfolioResult>) : RecyclerView.Adapter<MyPagePortfolioRVAdapter.ViewHolder>(){
     interface PortfolioClickListener{
@@ -34,6 +36,13 @@ class MyPagePortfolioRVAdapter(val context: Context, val result :List<PortfolioR
         fun bind(portfolio: PortfolioResult){
             binding.itemportfolioTitelTv.text = portfolio.title
             binding.itemportfolioWorksTv.text = portfolio.post_count.toString()
+            if(portfolio.pfolimgUrl == "" || portfolio.pfolimgUrl== null){
+
+            } else {
+                Log.d("image", portfolio.portfolioIdx.toString() + " : " + portfolio.pfolimgUrl )
+                //Glide 라이브러리로 url을 이미지로 업로드
+                Glide.with(context).load(portfolio.pfolimgUrl).into(binding.itemportfolioIv)
+            }
         }
     }
 }
