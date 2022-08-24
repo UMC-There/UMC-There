@@ -25,7 +25,13 @@ class PortfolioFragment : Fragment(), PfolPostView {
 
         binding.portfolioBackIv.setOnClickListener{
             (context as MainActivity).supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frm , MyPageFragment()).commitAllowingStateLoss()
+                .replace(R.id.main_frm , MyPageFragment().apply {
+                    arguments = Bundle().apply {
+                        putInt("currentview", 2)
+                    }
+                })
+                .commitAllowingStateLoss()
+
         }
 
         return binding.root

@@ -43,7 +43,11 @@ class MyPageFragment : Fragment(), MyPageView {
             tab, position -> tab.setIcon(tabIconArray[position])
         }.attach()
 
-
+        val current = arguments?.getInt("currentview")
+        Log.d("current", current.toString())
+        if(current == 2) {
+            binding.mypageViewpager.setCurrentItem(current, false)
+        }
 //sticky 스크롤뷰
 //        binding.mypageScrollview.run {
 //            header = binding.mypageTablayout
