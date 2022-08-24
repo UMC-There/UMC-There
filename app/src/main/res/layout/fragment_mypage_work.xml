@@ -3,12 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     xmlns:tools="http://schemas.android.com/tools">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mypage_works_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:layout_marginHorizontal="16dp"
         app:spanCount="3"
         android:clipToPadding="false"
         tools:listitem="@layout/item_work"/>
