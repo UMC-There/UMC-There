@@ -29,7 +29,8 @@
         <activity android:name=".PostActivity"/>
         <activity android:name=".AddHistoryActivity"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".AddPostActivity"/>
+        <activity android:name=".AddPostActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ChattingRoomActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".LoginActivity"/>

@@ -13,6 +13,8 @@ data class PortfolioResult(
     @SerializedName(value = "portfolioIdx") val portfolioIdx: Int,
     @SerializedName(value = "post_count") val post_count: Int,
     @SerializedName(value = "title") val title: String?,
+    @SerializedName(value = "imgUrl") val pfolimgUrl: String?,
+
 )
 
 //포트폴리오 내 포스트 조회
