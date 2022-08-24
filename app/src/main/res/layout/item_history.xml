@@ -59,6 +59,7 @@
         android:id="@+id/history_content_cl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/history_header_cl"
         android:layout_marginStart="46dp"
@@ -81,7 +82,9 @@
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/history_image_iv"
-            android:layout_marginTop="12dp"/>
+            app:layout_constraintBottom_toBottomOf="@id/history_content_cl"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

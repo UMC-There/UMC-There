@@ -94,6 +94,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
             imm.hideSoftInputFromWindow(editText.windowToken, 0)
         }
 
+        //갤러리 접근
         lateinit var launcher : ImagePickerLauncher
         launcher = registerImagePicker { result ->
             if(result.isNotEmpty()){

@@ -3,6 +3,7 @@ package com.example.there_android
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.there_android.databinding.ItemHistoryBinding
@@ -19,6 +20,15 @@ class HistoryRVAdapter(val context : Context, val result : List<GetHistoryListRe
             binding.historyTitleTv.text = historyResult.title
             binding.historyDateTv.text = historyResult.createAt
             binding.historyDayTv.text = historyResult.datOfWeek
+
+            binding.historyHeaderCl.setOnClickListener {
+                if(binding.historyContentCl.visibility == View.INVISIBLE){
+                    binding.historyContentCl.visibility = View.VISIBLE
+                }
+                else{
+                    binding.historyContentCl.visibility = View.INVISIBLE
+                }
+            }
         }
     }
 
