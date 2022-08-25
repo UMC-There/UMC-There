@@ -19,12 +19,22 @@ class SearchFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSearchBinding.inflate(inflater, container, false)
+        binding.searchEt.setOnClickListener{
 
+        }
+        binding.searchSearchbtn.setOnClickListener{
+
+        }
         return binding.root
     }
-    private fun search(){
+    private fun searchInput(){
+
+    }
+
+    private fun searchview(){
         searchview.queryHint = "검색"
         searchview.isSubmitButtonEnabled = true
+        searchview.onActionViewExpanded()
         searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             // 검색 버튼 누를 때 호출
             override fun onQueryTextSubmit(p0: String?): Boolean {

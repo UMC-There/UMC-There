@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity(), LoginView {
             login()
         }
         binding.loginKakaoBtn.setOnClickListener{
+            //kakaoWeb()
             kakaoLogin()
         }
     }
@@ -81,14 +82,19 @@ class LoginActivity : AppCompatActivity(), LoginView {
         Log.d("login-jwt", "토큰 저장됨")
     }
 
+    //카카오 웹뷰
+    private fun kakaoWeb() {
+        val intent = Intent(this, WebViewActivity::class.java)
+        startActivity(intent)
+    }
 
-//카카오 로그인
-    private fun kakaoLogin(){
-    // 토큰 정보 확인
-    UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
-        if (error != null) {
-            Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
-        }
+    //카카오 로그인
+    private fun kakaoLogin() {
+        // 토큰 정보 확인
+        UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
+            if (error != null) {
+                //Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
+            }
         else if (tokenInfo != null) {
             Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)

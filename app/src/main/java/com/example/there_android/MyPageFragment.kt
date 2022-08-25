@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.there_android.databinding.FragmentMypageBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -43,7 +44,11 @@ class MyPageFragment : Fragment(), MyPageView {
             tab, position -> tab.setIcon(tabIconArray[position])
         }.attach()
 
-
+        val current = arguments?.getInt("currentview")
+        Log.d("current", current.toString())
+        if(current == 2) {
+            binding.mypageViewpager.setCurrentItem(current, false)
+        }
 //sticky 스크롤뷰
 //        binding.mypageScrollview.run {
 //            header = binding.mypageTablayout
@@ -79,6 +84,11 @@ class MyPageFragment : Fragment(), MyPageView {
         binding.mypageFollowerTv.text = result.user.followerIdx.toString()
         binding.mypageFolloweeTv.text = result.user.followeeIdx.toString()
         binding.mypageIntroTv.text = result.user.info
+        if(result.user.profileImgUrl == "" || result.user.profileImgUrl== null){
+
+        } else {
+            Glide.with(this).load(result.user.profileImgUrl).into(binding.mypageProfileimgIv)
+        }
     }
 
     override fun onMyPageSuccess(result: MyPageResult) {

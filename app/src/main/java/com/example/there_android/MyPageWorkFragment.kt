@@ -52,6 +52,7 @@ class MyPageWorkFragment : Fragment(), MyPageView{
     private fun toWorkFragment(postIdx: Int) {
         val intent = Intent(context,PostActivity::class.java)
         intent.putExtra("postIdx", postIdx)
+        Log.d("MyPostidx", postIdx.toString())
         startActivity(intent)
     }
 

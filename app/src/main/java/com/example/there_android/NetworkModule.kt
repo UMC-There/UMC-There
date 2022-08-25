@@ -1,5 +1,6 @@
 package com.example.there_android
 
+import android.util.Log
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -41,7 +42,7 @@ object networkModule {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
             val newRequest = request().newBuilder()
-                .addHeader("Authorization", GlobalApplication.spf.spfJwt.toString() ?: "") //헤더에 토큰 저장
+                .addHeader("jwt", GlobalApplication.spf.spfJwt.toString() ?: "") //헤더에 토큰 저장
                 .build()
             proceed(newRequest)
         }
