@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.there_android.databinding.FragmentChatBinding
+import com.example.there_android.databinding.ItemChatlistBinding
 import kotlin.collections.List
 
 class ChatFragment : Fragment(), ChatView {
@@ -28,6 +29,12 @@ class ChatFragment : Fragment(), ChatView {
         return binding.root
     }
 
+
+    override fun onStart() {
+        super.onStart()
+        loadData()
+    }
+
     private fun setAdapter(chatList : List<ChatResponse.Result>){
         //val mAdapter = ChatRVAdapter(chatList)
         //val mAdapter = this.context?.let { ChatRVAdapter(it, chatList) }
@@ -46,6 +53,7 @@ class ChatFragment : Fragment(), ChatView {
         chatService.setChatView(this)
         chatService.getChat(getContent())
     }
+
 
     override fun onChatSuccess(result: List<ChatResponse.Result>) {
         setAdapter(result)

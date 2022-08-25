@@ -26,8 +26,8 @@ class HistoryRVAdapter(val context : Context, val result : List<GetHistoryListRe
 
             binding.historyHeaderCl.setOnClickListener {
                 if(binding.historyContentCl.visibility == View.INVISIBLE){
-                    binding.historyContentCl.visibility = View.VISIBLE
                     loadContent()
+                    binding.historyContentCl.visibility = View.VISIBLE
                 }
                 else{
                     binding.historyContentCl.visibility = View.INVISIBLE

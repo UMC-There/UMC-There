@@ -1,17 +1,18 @@
 package com.example.there_android
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.there_android.databinding.ItemAddhistoryImageBinding
 
-class AddHistoryRVAdapter(val context: Context, private var images: List<com.esafirm.imagepicker.model.Image>) : RecyclerView.Adapter<AddHistoryRVAdapter.ViewHolder>(){
+class AddHistoryRVAdapter(val context: Context, private var images: List<String>) : RecyclerView.Adapter<AddHistoryRVAdapter.ViewHolder>(){
     inner class ViewHolder(private val binding: ItemAddhistoryImageBinding):RecyclerView.ViewHolder(binding.root){
         val image = binding.itemAddhistoryImageIv
 
-        fun bind(image: com.esafirm.imagepicker.model.Image){
+        fun bind(image: String){
             Glide.with(binding.itemAddhistoryImageIv.context).load(image).into(binding.itemAddhistoryImageIv)
         }
     }
@@ -22,7 +23,8 @@ class AddHistoryRVAdapter(val context: Context, private var images: List<com.esa
     }
 
     override fun getItemCount(): Int {
-        return images.size
+        return if(images.isNotEmpty()) images.size else 1
+        Log.d("CHECK", images.size.toString())
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
