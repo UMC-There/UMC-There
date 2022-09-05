@@ -1,14 +1,14 @@
 package com.example.there_android
 
-import android.app.ProgressDialog.show
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import com.example.there_android.Chat.ChatFragment
+import com.example.there_android.Home.HomeFragment
+import com.example.there_android.MyPage.MyPageFragment
+import com.example.there_android.Search.SearchFragment
 import com.example.there_android.databinding.ActivityMainBinding
 import com.example.there_android.databinding.FragmentMypageBinding
-import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
 
