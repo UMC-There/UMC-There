@@ -251,7 +251,7 @@
 <!--            android:id="@+id/post_history_fragment"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="0dp"-->
-<!--            android:name="com.example.there_android.HistoryFragment"-->
+<!--            android:name="com.example.there_android.History.HistoryFragment"-->
 <!--            android:visibility="visible"-->
 <!--            app:layout_constraintTop_toBottomOf="@id/post_history_header_cl"-->
 <!--            app:layout_constraintStart_toStartOf="parent"-->
