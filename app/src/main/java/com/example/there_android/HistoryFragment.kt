@@ -23,7 +23,7 @@ class HistoryFragment:Fragment() , GetHistoryListView{
     ): View? {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
 
-        val postIdx = 1 //arguments?.getInt("postIdx", 0)!!
+        val postIdx = 40 //arguments?.getInt("postIdx", 0)!!
         if(postIdx == null){
             Log.d("CHECK", "null값 들어감")
         }
@@ -34,6 +34,11 @@ class HistoryFragment:Fragment() , GetHistoryListView{
         loadData()
 
         return binding.root
+    }
+
+    override fun onStart(){
+        super.onStart()
+        loadData()
     }
 
     private fun getContent(postIdx : Int) : GetHistoryListRequest{

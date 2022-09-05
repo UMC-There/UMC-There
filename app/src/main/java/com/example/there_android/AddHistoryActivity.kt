@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.esafirm.imagepicker.features.*
 import com.example.there_android.databinding.ActivityAddhistoryBinding
+import org.json.JSONObject
 
 class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
@@ -48,8 +49,7 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
         //'완료' 버튼 누르면 서버로 데이터 전송 & Post 화면으로 전환
         binding.addhistoryDoneTv.setOnClickListener {
-            //addHistory()
-
+            addHistory()
         }
 
         //제목 텍스트 작성 시 체크 표시
@@ -72,7 +72,6 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
         })
 
         //갤러리 접근 & 사진 첨부
-
         var launcher : ImagePickerLauncher = registerImagePicker { result ->
             if(result.isNotEmpty()){
                 images = result
@@ -84,8 +83,6 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
         }
 
         binding.addhistoryAddimgCl.setOnClickListener {
-
-
             val config = ImagePickerConfig{
                 mode = ImagePickerMode.MULTIPLE
                 isFolderMode = false
@@ -100,7 +97,6 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
 
             launcher.launch(config)
 
-
             binding.addhistoryBigImageRv.visibility = View.VISIBLE
             binding.addhistoryAddimgCl.visibility = View.INVISIBLE
         }
@@ -114,39 +110,44 @@ class AddHistoryActivity: AppCompatActivity() , AddHistoryView{
         binding.addhistoryBigImageRv.setHasFixedSize(true)
     }
 
-    private fun createConfig(): ImagePickerConfig{
-        return ImagePickerConfig {
-            mode = ImagePickerMode.MULTIPLE
-            arrowColor = Color.WHITE
-            imageTitle = "이미지를 선택하세요"
-            isShowCamera = true
-            limit = 5
-            returnMode = ReturnMode.NONE
-        }
+//    private fun createConfig(): ImagePickerConfig{
+//        return ImagePickerConfig {
+//            mode = ImagePickerMode.MULTIPLE
+//            arrowColor = Color.WHITE
+//            imageTitle = "이미지를 선택하세요"
+//            isShowCamera = true
+//            limit = 5
+//            returnMode = ReturnMode.NONE
+//        }
+//    }
+
+//    Request로 보낼 내용 얻는 함수
+    private fun getContent() : AddHistoryRequest {
+        val title : String = binding.addhistoryAddtitleEt.text.toString()
+        val content : String = binding.addhistoryAddcontentEt.text.toString()
+        val jsonObject = JSONObject()
+        jsonObject.put("title", title)
+        jsonObject.put("content", content)
+
+        Log.d("CHECK", jsonObject.toString())
+        return AddHistoryRequest(null, jsonObject)
     }
 
-//////    Request로 보낼 내용 얻는 함수
-////    private fun getContent() : AddHistoryRequest {
-////        val title : String = binding.addhistoryAddtitleEt.text.toString()
-////        val content : String = binding.addhistoryAddcontentEt.text.toString()
-////        return AddHistoryRequest()
-////    }
-////
-//////    History 정보를 서버에 전달
-////    private fun addHistory(){
-////        val addHistoryService = AddHistoryService()
-////        addHistoryService.setAddHistoryView(this)
-////        addHistoryService.addHistory(getContent())
-////    }
+//    History 정보를 서버에 전달
+    private fun addHistory(){
+        val addHistoryService = AddHistoryService()
+        addHistoryService.setAddHistoryView(this)
+        addHistoryService.addHistory(getContent())
+    }
 
     override fun onAddHistorySuccess(code: Int, message : String){
         //새로운 history 생성
         finish()
-        Toast.makeText(this, "history가 생성되었습니다", Toast.LENGTH_SHORT).show()
+        Log.d("ADDHISTORY/SUCCESS", "서버 연결에 성공했습니다. ")
     }
 
     override fun onAddHistoryFailure() {
-        TODO("Not yet implemented")
+        Log.d("ADDHISTORY/FAILURE", "서버 연결에 실패하였습니다. ")
     }
 
 }

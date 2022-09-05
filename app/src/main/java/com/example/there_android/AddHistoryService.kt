@@ -22,6 +22,7 @@ class AddHistoryService{
                 call: Call<AddHistoryResponse>,
                 response: Response<AddHistoryResponse>
             ) {
+                //Log.d("ADDHISTORY/SUCCESS", "연결 성공")
                 val resp : AddHistoryResponse = response.body()!!
                 Log.d("ADDHISTORY/SUCCESS", resp.message)
                 when(resp.code){
