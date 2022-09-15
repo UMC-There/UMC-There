@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_comment_profile_iv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/shape_circle"
+        android:background="#E7EAEE"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"/>
+    
+    <ImageView
+        android:id="@+id/item_comment_heart_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/btn_comment_heart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="22dp"
+        android:layout_marginTop="23dp"/>
+
+    <TextView
+        android:id="@+id/item_comment_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="계정명"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toEndOf="@id/item_comment_profile_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/item_commnet_content_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내용을 작성합시다."
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/item_comment_name_tv"
+        app:layout_constraintStart_toEndOf="@id/item_comment_profile_iv"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="1dp"/>
+
+    <TextView
+        android:id="@+id/item_comment_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1시간"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/item_commnet_content_tv"
+        app:layout_constraintStart_toEndOf="@id/item_comment_profile_iv"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="4dp"/>
+
+    <TextView
+        android:id="@+id/item_comment_reply_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="답글 달기"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@id/item_comment_time_tv"
+        app:layout_constraintTop_toBottomOf="@id/item_commnet_content_tv"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="18dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

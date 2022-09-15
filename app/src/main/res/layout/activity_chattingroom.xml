@@ -44,7 +44,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/chattingroom_line"
-        app:layout_constraintBottom_toTopOf="@id/chattingroom_send_cl"
+        app:layout_constraintBottom_toTopOf="@id/chattingroom_send_iv"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"/>
@@ -55,41 +55,25 @@
         android:layout_height="40dp"
         android:background="@drawable/border_chattingroom_chat"
         android:drawableStart="@drawable/btn_chattingroom_add"
+        android:drawableEnd="@drawable/img_edittext_emoji"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/chattingroom_send_cl"
+        app:layout_constraintEnd_toStartOf="@id/chattingroom_send_iv"
         android:layout_marginStart="13dp"
         android:layout_marginBottom="34dp"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/chattingroom_send_cl"
+    <ImageView
+        android:id="@+id/chattingroom_send_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:src="@drawable/btn_edittext_send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/chattingroom_chat_et"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="17dp"
-        android:layout_marginBottom="34dp">
+        android:layout_marginBottom="34dp"/>
 
-        <ImageView
-            android:id="@+id/chattingroom_send_background_iv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/btn_chattingroom_send_background"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="27dp"
-            android:src="@drawable/btn_chattingroom_send"
-            app:layout_constraintBottom_toBottomOf="@id/chattingroom_send_background_iv"
-            app:layout_constraintEnd_toEndOf="@id/chattingroom_send_background_iv"
-            app:layout_constraintStart_toStartOf="@id/chattingroom_send_background_iv"
-            app:layout_constraintTop_toTopOf="@id/chattingroom_send_background_iv" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
