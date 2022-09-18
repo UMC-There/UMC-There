@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemfollow"
+    android:layout_marginBottom="10dp">
+    <ImageView
+        android:id="@+id/itemfollow_followerImg_iv"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/img_mypage_profileimg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/itemfollow_accountname_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="계정명을 입력합니다."
+        android:textSize="14sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="67dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/itemfollow_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름입력"
+        android:textSize="14sp"
+        android:textColor="#A0ABBB"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/itemfollow_accountname_tv"
+        app:layout_constraintStart_toStartOf="@id/itemfollow_accountname_tv"/>
+    <Button
+        android:id="@+id/itemfollow_delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="삭제"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
