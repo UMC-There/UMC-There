@@ -3,6 +3,7 @@ package com.example.there_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.app.ActivityCompat.finishAffinity
 import com.example.there_android.Chat.ChatFragment
 import com.example.there_android.Home.HomeFragment
 import com.example.there_android.MyPage.MyPageFragment

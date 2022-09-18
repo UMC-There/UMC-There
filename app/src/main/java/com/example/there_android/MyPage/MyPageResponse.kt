@@ -26,3 +26,15 @@ data class User(
     @SerializedName(value = "profileImgUrl") val profileImgUrl: String,
     @SerializedName(value = "userIdx") val userIdx: Int,
 )
+
+//팔로워,팔로잉 리스트
+data class FollowResponse(
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("result") val result: List<FollowerList>?,
+)
+data class FollowerList(
+    @SerializedName(value = "nickName") val nickName: String?,
+    @SerializedName(value = "profileimgUrl") val profileImgUrl: String?
+)

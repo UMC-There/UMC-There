@@ -1,5 +1,6 @@
 package com.example.there_android.MyPage
 
+
 import android.content.Intent
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.there_android.Post.AddPostActivity
@@ -30,11 +32,23 @@ class MyPageFragment : Fragment(), MyPageView {
         binding.mypageProfileimgIv.background = ShapeDrawable(OvalShape())
         binding.mypageProfileimgIv.clipToOutline = true
 
-        //페이지 이동
+        //페이지 이동 - 포스트 추가, 프로필편집, 작가노트, 팔로우
         binding.mypageAddIv.setOnClickListener {
             val intent = Intent(context, AddPostActivity::class.java)
             startActivity(intent)
             //(activity as MainActivity).startActivity(intent)
+        }
+        binding.mypageProfileeditBtn.setOnClickListener{
+            val intent = Intent(context, MyPageEditActivity::class.java)
+            startActivity(intent)
+        }
+        binding.mypageNoteBtn.setOnClickListener{
+            val intent = Intent(context, MyPageNoteActivity::class.java)
+            startActivity(intent)
+        }
+        binding.mypageFollowLl.setOnClickListener{
+            val intent = Intent(context, MyPageFollowActivity::class.java)
+            startActivity(intent)
         }
 
 

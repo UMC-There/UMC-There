@@ -9,4 +9,14 @@ interface MyPageRetrofitInterface {
     fun getUserData(
         @Path("userIdx") userIdx : Int
     ): Call<MyPageResponse>
+
+    @GET("/follow/{userIdx}/followerList")
+    fun getFollowerData(
+        @Path("userIdx") userIdx : Int
+    ): Call<FollowResponse>
+
+    @GET("/follow/{userIdx}/followingList")
+    fun getFollowingData(
+        @Path("userIdx") userIdx : Int
+    ): Call<FollowResponse>
 }

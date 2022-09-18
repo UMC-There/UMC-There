@@ -16,7 +16,7 @@ import com.google.gson.Gson
 
 class PortfolioFragment : Fragment(), PfolPostView {
     private lateinit var binding: FragmentPortfolioBinding
-    private var myPageData = ArrayList<MyPageData>()
+    //private var myPageData = ArrayList<MyPageData>()
     val gson = Gson()
 
     override fun onCreateView(

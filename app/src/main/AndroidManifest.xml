@@ -31,11 +31,12 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Post.AddPostActivity"
             android:windowSoftInputMode="adjustPan"/>
+
         <activity android:name=".Chat.ChattingRoomActivity"
             android:windowSoftInputMode="adjustPan"/>
+
         <activity android:name=".Auth.LoginActivity"/>
         <activity android:name=".Auth.JoinActivity"/>
-
         <activity android:name=".Auth.WelcomeActivity"
             android:exported="true">
             <intent-filter>
@@ -57,6 +58,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MyPage.MyPageFollowActivity"/>
     </application>
 
 </manifest>
