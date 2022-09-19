@@ -59,6 +59,8 @@
         </activity>
 
         <activity android:name=".MyPage.MyPageFollowActivity"/>
+        <activity android:name=".MyPage.MyPageNoteActivity"/>
+        <activity android:name=".MyPage.MyPageEditActivity"/>
     </application>
 
 </manifest>

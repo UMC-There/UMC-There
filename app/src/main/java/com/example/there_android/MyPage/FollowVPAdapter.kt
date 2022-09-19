@@ -13,7 +13,7 @@ class FollowVPAdapter(activity: AppCompatActivity) :
         override fun createFragment(position: Int): Fragment {
             return when(position){
                 0-> FollowerFragment()
-                else-> FollowerFragment()
+                else-> FollowingFragment()
             }
 
         }
