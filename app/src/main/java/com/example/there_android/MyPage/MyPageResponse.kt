@@ -36,5 +36,31 @@ data class FollowResponse(
 )
 data class FollowerList(
     @SerializedName(value = "nickName") val nickName: String?,
-    @SerializedName(value = "profileimgUrl") val profileImgUrl: String?
+    @SerializedName(value = "profileImgUrl") val profileImgUrl: String?
 )
+
+//작가노트 조회
+data class NoteResponse(
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("result") val result: NoteResult?,
+)
+data class NoteResult(
+    @SerializedName(value = "selfIntroduction") val selfIntroduction: String?,
+    @SerializedName(value = "workIntroduction") val workIntroduction: String?,
+    @SerializedName(value = "contact") val contact: String?,
+    @SerializedName("statementIdx") val statementIdx: Int,
+    @SerializedName("userIdx") val userIdx: Int,
+)
+
+//작가노트 작성
+data class PostNoteResponse(
+    @SerializedName("isSuccess") val isSuccess: Boolean,
+    @SerializedName("code") val code: Int,
+    @SerializedName("message") val message: String,
+    @SerializedName("result") val result: String?,
+)
+//data class PostNoteResult(
+//    @SerializedName("statementIdx") val statementIdx: Int,
+//)
