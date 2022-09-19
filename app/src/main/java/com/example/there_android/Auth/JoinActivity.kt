@@ -77,13 +77,13 @@ class JoinActivity : AppCompatActivity(), JoinView {
         }
     }
 
-    private fun getUserAuth(): UserAuth {
+    private fun getUserAuth(): UserAuthRequest {
         val email: String = binding.joinEmailEt.text.toString()
         val nickName: String = binding.joinNameEt.text.toString()
         val password: String = binding.joinPwEt.text.toString()
         val checkpwd: String = binding.joinCheckpwEt.text.toString()
 
-        return UserAuth(nickName, email, password, checkpwd)
+        return UserAuthRequest(nickName, email, password, checkpwd)
     }
 
     private fun join() {

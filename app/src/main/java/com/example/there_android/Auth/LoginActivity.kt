@@ -55,11 +55,11 @@ class LoginActivity : AppCompatActivity(), LoginView {
         }
     }
 
-    private fun getUserAuth(): UserAuth {
+    private fun getUserAuth(): UserAuthRequest {
         val email = binding.loginIdEt.text.toString()
         val password = binding.loginPwEt.text.toString()
 
-        return UserAuth(email = email, password = password, nickName = "", checkpwd = "")
+        return UserAuthRequest(email = email, password = password, nickName = "", checkpwd = "")
     }
 
     private fun login() {

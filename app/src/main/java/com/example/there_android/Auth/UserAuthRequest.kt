@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "UserTable")
-data class UserAuth(
+data class UserAuthRequest(
     @SerializedName(value = "nickName")val nickName: String?,
     @SerializedName(value = "email")val email: String,
     @SerializedName(value = "password")val password: String,
