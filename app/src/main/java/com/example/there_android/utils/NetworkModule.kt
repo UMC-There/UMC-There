@@ -41,7 +41,8 @@ object networkModule {
         @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
             val newRequest = request().newBuilder()
-                .addHeader("jwt", GlobalApplication.spf.spfJwt.toString() ?: "") //헤더에 토큰 저장
+                .addHeader("X-ACCESS-TOKEN", GlobalApplication.spf.spfJwt.toString() ?: "") //헤더에 토큰 저장
+//                .addHeader("jwt", GlobalApplication.spf.spfJwt.toString() ?: "ff") //헤더에 토큰 저장
                 .build()
             proceed(newRequest)
         }
