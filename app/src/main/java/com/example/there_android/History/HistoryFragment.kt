@@ -35,16 +35,12 @@ class HistoryFragment:Fragment() , GetHistoryListView {
         return binding.root
     }
 
-<<<<<<< HEAD:app/src/main/java/com/example/there_android/HistoryFragment.kt
     override fun onStart(){
         super.onStart()
         loadData()
     }
 
-    private fun getContent(postIdx : Int) : GetHistoryListRequest{
-=======
     private fun getContent(postIdx : Int) : GetHistoryListRequest {
->>>>>>> d5b860252cf5c41e8a2b1d8db5e63300f3fc03d6:app/src/main/java/com/example/there_android/History/HistoryFragment.kt
         return GetHistoryListRequest(postIdx)
     }
 

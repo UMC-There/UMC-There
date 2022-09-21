@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.there_android.Comment.CommentActivity
 import com.example.there_android.Post.PostActivity
 import com.example.there_android.databinding.FragmentMypageWorkBinding
 import com.example.there_android.utils.GlobalApplication
@@ -52,6 +53,7 @@ class MyPageWorkFragment : Fragment(), MyPageView {
     private fun toWorkFragment(postIdx: Int) {
         val intent = Intent(context, PostActivity::class.java)
         intent.putExtra("postIdx", postIdx)
+
         Log.d("MyPostidx", postIdx.toString())
         startActivity(intent)
     }

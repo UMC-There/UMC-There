@@ -35,6 +35,8 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".Auth.LoginActivity"/>
         <activity android:name=".Auth.JoinActivity"/>
+        <activity android:name=".Comment.CommentActivity"
+            android:windowSoftInputMode="adjustPan"/>
 
         <activity android:name=".Auth.WelcomeActivity"
             android:exported="true">

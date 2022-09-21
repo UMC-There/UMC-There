@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.there_android.Comment.CommentActivity
 import com.example.there_android.History.AddHistoryActivity
 import com.example.there_android.History.GetHistoryListRequest
 import com.example.there_android.History.HistoryFragment
@@ -26,18 +27,24 @@ class PostActivity :AppCompatActivity() , GetPostView {
         binding = ActivityPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val postIdx : Int = intent.getIntExtra("postIdx", 0)
+        Log.d("intent", postIdx.toString())
+
         //addHistory 화면 전환
         binding.postAddHistoryIv.setOnClickListener {
             val intent = Intent(this, AddHistoryActivity::class.java)
             startActivity(intent)
         }
 
+        binding.postCommentIv.setOnClickListener {
+            val intent = Intent(this, CommentActivity::class.java)
+            intent.putExtra("postIdx", postIdx)
+            startActivity(intent)
+        }
+
         binding.postBackIv.setOnClickListener{
             finish()
         }
-
-        val postIdx : Int = intent.getIntExtra("postIdx", 0)
-        Log.d("intent", postIdx.toString())
 
         getContent(postIdx)
         loadData()

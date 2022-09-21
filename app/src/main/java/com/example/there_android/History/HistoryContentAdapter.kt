@@ -1,4 +1,3 @@
-<<<<<<< HEAD:app/src/main/java/com/example/there_android/HistoryContentAdapter.kt
 //package com.example.there_android
 //
 //import android.content.Context
@@ -29,7 +28,6 @@
 //        holder.bind(result)
 //    }
 //}
-=======
 package com.example.there_android.History
 
 import android.content.Context
@@ -59,4 +57,3 @@ class HistoryContentAdapter(val context : Context, val result: HistoryContentRes
         holder.bind(result)
     }
 }
->>>>>>> d5b860252cf5c41e8a2b1d8db5e63300f3fc03d6:app/src/main/java/com/example/there_android/History/HistoryContentAdapter.kt
